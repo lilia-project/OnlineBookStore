@@ -23,6 +23,9 @@ public class Book {
     @OneToOne
     @JoinColumn(name = "category_id")
     private Category category;
+    @OneToOne
+    @JoinColumn(name = "rating_id")
+    private Rating rating;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "author_book",
             joinColumns = @JoinColumn(name = "book_id"),

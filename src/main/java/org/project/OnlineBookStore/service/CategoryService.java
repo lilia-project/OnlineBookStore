@@ -32,6 +32,4 @@ public class CategoryService {
     public void deleteCategory(final Category category) {
         categoryRepository.delete(category);
     }
-
-
 }
