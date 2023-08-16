@@ -26,5 +26,13 @@ public class Book {
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors = new HashSet<>();
-    
+
+    public Book() {
+    }
+
+    public Book(Long id, String name, Long author_id) {
+        this.id = id;
+        this.name = name;
+        this.author_id = author_id;
+    }
 }
