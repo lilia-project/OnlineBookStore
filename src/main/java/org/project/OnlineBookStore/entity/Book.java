@@ -19,8 +19,10 @@ public class Book {
     private String name;
     private Long stock;
     private Double price;
-
-    private Long author_id;
+    private Long authorId;
+    @OneToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "author_book",
             joinColumns = @JoinColumn(name = "book_id"),
@@ -30,9 +32,9 @@ public class Book {
     public Book() {
     }
 
-    public Book(Long id, String name, Long author_id) {
+    public Book(Long id, String name, Long authorId) {
         this.id = id;
         this.name = name;
-        this.author_id = author_id;
+        this.authorId = authorId;
     }
 }
