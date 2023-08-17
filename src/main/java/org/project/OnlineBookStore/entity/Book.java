@@ -14,7 +14,6 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Long id;
     @NotBlank(message = "Name can not be Blank")
     private String name;
@@ -24,9 +23,15 @@ public class Book {
     @OneToOne
     @JoinColumn(name = "category_id")
     private Category category;
+
     @OneToOne
     @JoinColumn(name = "rating_id")
     private Rating rating;
+
+    @ManyToOne
+    @JoinColumn(name = "wishlist_id")
+    private Wishlist wishlist;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "author_book",
             joinColumns = @JoinColumn(name = "book_id"),

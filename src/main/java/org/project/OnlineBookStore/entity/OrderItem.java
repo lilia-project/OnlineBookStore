@@ -4,24 +4,27 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Setter
 @Getter
 public class OrderItem {
 
-    @ManyToOne
-    @JoinColumn(name = "client_order_id")
-    private Order order;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "order_item_id")
     private Long id;
     @NonNull
     private Long bookId;
     @NonNull
     private Double count;
+
+     /* @ManyToOne
+    @JoinColumn(name = "id")
+    private Order order;*/
 
     public OrderItem() {
     }

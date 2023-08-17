@@ -4,8 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Setter
@@ -17,7 +15,7 @@ public class Wishlist {
     @Column(name = "wishlist_id")
     private Long id;
 
-    @OneToMany
+   /* @OneToMany
     @JoinColumn(name = "id")
-    private Set<Book> bookSet = new HashSet<Book>();
+    private Set<Book> bookSet = new HashSet<Book>();*/
 }

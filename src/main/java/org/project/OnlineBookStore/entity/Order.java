@@ -13,7 +13,6 @@ import javax.persistence.*;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "client_order_id")
     private Long id;
     @Enumerated(EnumType.STRING)
     private StatusOrder statusOrder;
@@ -21,6 +20,10 @@ public class Order {
     private Double price;
     @NonNull
     private Long userId;
+
+    @ManyToOne
+    @JoinColumn(name = "order_item_id")
+    private OrderItem orderItem;
 
     public Order() {
     }
