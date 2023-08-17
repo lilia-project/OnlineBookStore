@@ -1,6 +1,5 @@
 package org.project.OnlineBookStore.service;
 
-import org.project.OnlineBookStore.entity.Category;
 import org.project.OnlineBookStore.entity.Rating;
 import org.project.OnlineBookStore.repository.RatingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +16,12 @@ public class RatingService {
     public RatingService(RatingRepository ratingRepository) {
         this.ratingRepository = ratingRepository;
     }
+
     public void saveRating(final Rating rating) {
         ratingRepository.save(rating);
     }
 
-    public List<Rating> getRating() {
+    public List<Rating> getRatings() {
         return ratingRepository.findAll();
     }
 
