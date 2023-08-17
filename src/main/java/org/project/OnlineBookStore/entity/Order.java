@@ -18,16 +18,17 @@ public class Order {
     private StatusOrder statusOrder;
     @NonNull
     private Double price;
-    @NonNull
-    private Long userId;
+
+    @ManyToOne
+    @JoinColumn(name = "consumer_id")
+    private User user;
 
     public Order() {
     }
 
-    public Order(Long id, StatusOrder statusOrder, @NonNull Double price, @NonNull Long userId) {
+    public Order(Long id, StatusOrder statusOrder, @NonNull Double price) {
         this.id = id;
         this.statusOrder = statusOrder;
         this.price = price;
-        this.userId = userId;
     }
 }
