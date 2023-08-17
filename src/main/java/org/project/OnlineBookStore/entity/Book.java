@@ -14,6 +14,7 @@ import java.util.Set;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Long id;
     @NotBlank(message = "Name can not be Blank")
     private String name;

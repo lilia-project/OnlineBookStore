@@ -13,7 +13,7 @@ public class OrderItem {
 
     @ManyToOne
     @JoinColumn(name = "client_order_id")
-    public Order order;
+    private Order order;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "order_item_id")

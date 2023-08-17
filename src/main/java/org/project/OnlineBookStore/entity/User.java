@@ -20,7 +20,9 @@ public class User {
     @JoinColumn(name = "basket_id")
     private Basket basket;
 
-    private Long wishlist_id;
+    @OneToOne
+    @JoinColumn(name = "wishlist_id")
+    private Wishlist wishlist;
 
     public User() {
     }
