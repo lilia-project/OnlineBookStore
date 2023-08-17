@@ -17,7 +17,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    public void saveTree(final Book book) {
+    public void saveBook(final Book book) {
         bookRepository.save(book);
     }
 

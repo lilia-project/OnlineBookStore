@@ -21,10 +21,6 @@ public class Order {
     @NonNull
     private Long userId;
 
-    @ManyToOne
-    @JoinColumn(name = "order_item_id")
-    private OrderItem orderItem;
-
     public Order() {
     }
 

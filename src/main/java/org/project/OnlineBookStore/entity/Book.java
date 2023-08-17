@@ -31,6 +31,8 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "wishlist_id")
     private Wishlist wishlist;
+    @ManyToMany(mappedBy = "books")
+    private Set<Wishlist> wishlists = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "author_book",
