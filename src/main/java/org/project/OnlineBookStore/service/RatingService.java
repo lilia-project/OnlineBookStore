@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class RatingService {
-    private RatingRepository ratingRepository;
+    private final RatingRepository ratingRepository;
 
     @Autowired
     public RatingService(RatingRepository ratingRepository) {

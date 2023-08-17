@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class OrderService {
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
     @Autowired
     public OrderService(OrderRepository orderRepository) {

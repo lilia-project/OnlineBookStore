@@ -9,10 +9,11 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
-@Table(name = "clients_order")
+@Table(name = "client_order")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "client_order_id")
     private Long id;
     @Enumerated(EnumType.STRING)
     private StatusOrder statusOrder;

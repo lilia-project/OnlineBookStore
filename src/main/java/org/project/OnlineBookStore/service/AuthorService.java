@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class AuthorService {
-    private AuthorRepository authorRepository;
+    private final AuthorRepository authorRepository;
 
     @Autowired
     public AuthorService(AuthorRepository authorRepository) {
