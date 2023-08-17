@@ -16,17 +16,17 @@ public class User {
     private Long id;
     @Enumerated(EnumType.STRING)
     private Role role;
-    private Long basket_id;
+    @OneToOne
+    @JoinColumn(name = "basket_id")
+    private Basket basket;
 
     private Long wishlist_id;
 
     public User() {
     }
 
-    public User(Long id, Role role, Long basket_id, Long wishlist_id) {
+    public User(Long id, Role role) {
         this.id = id;
         this.role = role;
-        this.basket_id = basket_id;
-        this.wishlist_id = wishlist_id;
     }
 }
