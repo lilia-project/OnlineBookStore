@@ -25,6 +25,9 @@
                  <form id="createForm" onsubmit="createBook(event)">
                        <label for="name">Book name:</label>
                        <input type="text" id="name" placeholder="name" required>
+                       <input type="number" id="authorId" placeholder="authorId" required>
+                       <input type="number" id="price" placeholder="price" required>
+                       <input type="number" id="stock" placeholder="stock" required>
                        <button type="submit">Create</button>
                  </form>
         </section>

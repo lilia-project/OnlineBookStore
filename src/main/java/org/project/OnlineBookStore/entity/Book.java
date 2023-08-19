@@ -14,7 +14,6 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    //    @NotBlank(message = "Name can not be Blank")
     private String name;
     private Long stock;
     private Double price;
