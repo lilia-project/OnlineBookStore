@@ -6,13 +6,11 @@ function createBook(event) {
   //инпут тега,
   //.value отдает введенное значение в инпут
   const name = document.getElementById("name").value;
-  const authorId = document.getElementById("authorId").value;
   const price = document.getElementById("price").value;
   const stock = document.getElementById("stock").value;
 
   const requestBody = JSON.stringify({
     name: name,
-    authorId: authorId,
     price: price,
     stock: stock
   });

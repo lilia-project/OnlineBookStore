@@ -1,14 +1,18 @@
 package org.project.OnlineBookStore.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Setter
 @Getter
+@NoArgsConstructor
 public class OrderItem {
 
     @Id
@@ -17,18 +21,14 @@ public class OrderItem {
     @NonNull
     private Long bookId;
     @NonNull
-    private Double count;
+    private Long unitPrice;
+    @NonNull
+    private Long count;
 
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "order_orderitem",
+            joinColumns = @JoinColumn(name = "order_item_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id"))
+    private Set<Order> orders = new HashSet<>();
 
-    public OrderItem() {
-    }
-
-    public OrderItem(Long id, @NonNull Long bookId, @NonNull Double count) {
-        this.id = id;
-        this.bookId = bookId;
-        this.count = count;
-    }
 }

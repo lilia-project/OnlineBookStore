@@ -1,6 +1,7 @@
 package org.project.OnlineBookStore.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,27 +11,21 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private Long stock;
-    private Double price;
-    private Long authorId;
-    @OneToOne
+    private Long price;
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rating_id")
     private Rating rating;
-
-//    @ManyToOne
-//    @JoinColumn(name = "wishlist_id")
-//    private Wishlist wishlist;
-//    @ManyToMany(mappedBy = "books")
-//    private Set<Wishlist> wishlists = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "author_book",
@@ -38,12 +33,4 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors = new HashSet<>();
 
-    public Book() {
-    }
-
-    public Book(Long id, String name, Long authorId) {
-        this.id = id;
-        this.name = name;
-        this.authorId = authorId;
-    }
 }

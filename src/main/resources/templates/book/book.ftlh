@@ -25,7 +25,6 @@
                     <th>book id</th>
                     <th>name</th>
                     <th>price</th>
-                    <th>author id</th>
                     <th>stock</th>
                 </tr>
             </thead>
@@ -36,9 +35,7 @@
                        <td>${book.getId()}</td>
                        <td>${book.getName()}</td>
                        <td>${book.getPrice()}</td>
-                       <td>${book.getAuthorId()}</td>
                        <td>${book.getStock()}</td>
-                       <td><a href="/books/delete/${book.getId()}">DELETE</a></td>
                     </tr>
                 </div>
                 <div class="form-row">
@@ -47,7 +44,6 @@
                           <input type="text" name="name" class="form-control" placeholder="book name">
                           <input type="number" name="price" class="form-control" placeholder="price of book">
                           <input type="number" name="stock" class="form-control" placeholder="stock of book">
-                          <input type="number" name="authorId" class="form-control" placeholder="authorId of book"
                           <button type="submit" class="btn btn-primary ml-2">Edit book</button>
                         </form>
                     </div>

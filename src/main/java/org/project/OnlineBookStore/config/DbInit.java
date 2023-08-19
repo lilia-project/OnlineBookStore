@@ -26,8 +26,7 @@ public class DbInit {
             book.setName("Book_" + (int) (Math.random() * 401));
 //            Set<Author> authorsSet = new HashSet<>(authorService.getAuthors());
 //            book.setAuthors(authorsSet);
-            book.setPrice(Math.round(Math.random() * 501 * 100.0) / 100.0);
-            book.setAuthorId((long) (Math.random() * 301));
+            book.setPrice((long) (Math.random() * 501));
             book.setStock((long) (Math.random() * 101));
 
             bookService.saveBook(book);

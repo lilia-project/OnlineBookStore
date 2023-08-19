@@ -41,7 +41,6 @@
                         <td><a href="/books/${book.getId()}"><p>${book.getId()}</a></td>
                         <td>${book.getName()}</td>
                         <td>${book.price!'-'}</td>
-                        <td>${book.authorId!'-'}</td>
                         <td>${book.stock!'-'}</td>
                         <td><button onclick="deleteBook('${book.id}')">Delete</button></td>
                     </tr>

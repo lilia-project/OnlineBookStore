@@ -1,6 +1,7 @@
 package org.project.OnlineBookStore.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,11 +21,8 @@ public class Author {
     private String name;
     @NotBlank(message = "Surname can not be Blank")
     private String surname;
-    @ManyToMany(mappedBy = "authors")
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "authors")
     private Set<Book> books = new HashSet<>();
-
-    public Author() {
-    }
 
     public Author(Long id, String name, String surname) {
         this.id = id;

@@ -1,6 +1,7 @@
 package org.project.OnlineBookStore.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Entity
 @Setter
 @Getter
+@NoArgsConstructor
 @Table(name = "consumer")
 public class User {
     @Id
@@ -23,9 +25,6 @@ public class User {
     @OneToOne
     @JoinColumn(name = "wishlist_id")
     private Wishlist wishlist;
-
-    public User() {
-    }
 
     public User(Long id, Role role) {
         this.id = id;
