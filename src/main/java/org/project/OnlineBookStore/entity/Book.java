@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +14,7 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotBlank(message = "Name can not be Blank")
+    //    @NotBlank(message = "Name can not be Blank")
     private String name;
     private Long stock;
     private Double price;
@@ -28,11 +27,11 @@ public class Book {
     @JoinColumn(name = "rating_id")
     private Rating rating;
 
-    @ManyToOne
-    @JoinColumn(name = "wishlist_id")
-    private Wishlist wishlist;
-    @ManyToMany(mappedBy = "books")
-    private Set<Wishlist> wishlists = new HashSet<>();
+//    @ManyToOne
+//    @JoinColumn(name = "wishlist_id")
+//    private Wishlist wishlist;
+//    @ManyToMany(mappedBy = "books")
+//    private Set<Wishlist> wishlists = new HashSet<>();
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "author_book",
