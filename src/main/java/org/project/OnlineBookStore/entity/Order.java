@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +22,7 @@ public class Order {
     private Long id;
     @Enumerated(EnumType.STRING)
     private StatusOrder statusOrder;
-    @NonNull
+    @NotNull
     private Long price;
     private LocalDateTime orderTime;
 
@@ -29,10 +30,11 @@ public class Order {
     @JoinColumn(name = "consumer_id")
     private User user;
 
-    @ManyToMany(mappedBy = "orders")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orders")
+    @JoinColumn(name = "order_item_id")
     private Set<OrderItem> orderItems = new HashSet<>();
 
-    public Order(Long id, StatusOrder statusOrder, @NonNull Long price, Set<OrderItem> orderItems) {
+    public Order(Long id, StatusOrder statusOrder, @NotNull Long price, Set<OrderItem> orderItems) {
         this.id = id;
         this.statusOrder = statusOrder;
         this.price = price;

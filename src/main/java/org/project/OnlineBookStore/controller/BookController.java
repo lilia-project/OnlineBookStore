@@ -54,7 +54,7 @@ public class BookController {
         Optional<Book> book = bookService.getBookById(bookId);
         model.addAttribute("book", book.get());
 
-        return "edit-book";
+        return "book/book-edit";
     }
 
     @PutMapping("/{bookId}") //обновить

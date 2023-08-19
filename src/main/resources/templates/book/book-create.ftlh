@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empty Page</title>
+    <title>Book-create page</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
 
@@ -25,7 +25,9 @@
                  <form id="createForm" onsubmit="createBook(event)">
                        <label for="name">Book name:</label>
                        <input type="text" id="name" placeholder="name" required>
+                       <label for="name">Book price:</label>
                        <input type="number" id="price" placeholder="price" required>
+                       <label for="name">Book stock:</label>
                        <input type="number" id="stock" placeholder="stock" required>
                        <button type="submit">Create</button>
                  </form>

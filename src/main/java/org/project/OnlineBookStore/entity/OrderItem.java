@@ -3,9 +3,9 @@ package org.project.OnlineBookStore.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,17 +18,15 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NonNull
+    @NotNull
     private Long bookId;
-    @NonNull
+    @NotNull
     private Long unitPrice;
-    @NonNull
+    @NotNull
     private Long count;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "order_orderitem",
-            joinColumns = @JoinColumn(name = "order_item_id"),
-            inverseJoinColumns = @JoinColumn(name = "order_id"))
-    private Set<Order> orders = new HashSet<>();
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "client_order_id")
+    private Order order;
 
 }

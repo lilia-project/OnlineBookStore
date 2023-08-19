@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empty Page</title>
+    <title>Books Page</title>
     <link rel="stylesheet" href="../styles.css">
+    <script defer src="js/book-edit.js"></script>
     <script defer src="/js/book-delete.js"></script>
 </head>
 <body>
@@ -42,6 +43,8 @@
                         <td>${book.getName()}</td>
                         <td>${book.price!'-'}</td>
                         <td>${book.stock!'-'}</td>
+                <td><button onclick="window.location.href = '/books/${book.id}/edit-book-page'">Edit</button></td>
+
                         <td><button onclick="deleteBook('${book.id}')">Delete</button></td>
                     </tr>
                 </#list>

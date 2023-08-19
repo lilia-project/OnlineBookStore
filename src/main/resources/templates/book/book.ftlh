@@ -38,16 +38,7 @@
                        <td>${book.getStock()}</td>
                     </tr>
                 </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <form method="post" action="/edit/${id}" class="form-inline">
-                          <input type="text" name="name" class="form-control" placeholder="book name">
-                          <input type="number" name="price" class="form-control" placeholder="price of book">
-                          <input type="number" name="stock" class="form-control" placeholder="stock of book">
-                          <button type="submit" class="btn btn-primary ml-2">Edit book</button>
-                        </form>
-                    </div>
-                </div>
+
             </tbody>
         </table>
     </main>
