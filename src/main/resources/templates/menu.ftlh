@@ -2,6 +2,7 @@
     <ul>
         <li><a href="/index">Home</a></li>
         <li><a href="/books">Books</a></li>
+        <li><a href="/authors">Authors</a></li>
         <li><a href="/categories">Categories</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/contact">Contact</a></li>

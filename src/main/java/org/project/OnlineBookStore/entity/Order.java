@@ -3,7 +3,6 @@ package org.project.OnlineBookStore.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -30,15 +29,12 @@ public class Order {
     @JoinColumn(name = "consumer_id")
     private User user;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "orders")
-    @JoinColumn(name = "order_item_id")
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<OrderItem> orderItems = new HashSet<>();
 
-    public Order(Long id, StatusOrder statusOrder, @NotNull Long price, Set<OrderItem> orderItems) {
+    public Order(Long id, @NotNull Long price) {
         this.id = id;
-        this.statusOrder = statusOrder;
         this.price = price;
         this.orderTime = LocalDateTime.now();
-        this.orderItems = orderItems;
     }
 }

@@ -1,5 +1,6 @@
 package org.project.OnlineBookStore.config;
 
+import org.project.OnlineBookStore.entity.Author;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.service.AuthorService;
 import org.project.OnlineBookStore.service.BookService;
@@ -20,7 +21,7 @@ public class DbInit {
     }
 
     @PostConstruct
-    private void postConstruct() {
+    private void postConstructBook() {
         for (int i = 0; i < 10; i++) {
             final Book book = new Book();
             book.setName("Book_" + (int) (Math.random() * 401));
@@ -32,4 +33,16 @@ public class DbInit {
             bookService.saveBook(book);
         }
     }
+
+    private void postConstructAuthor() {
+        for (int i = 0; i < 5; i++) {
+            final Author author = new Author();
+            author.setName("Denny_" + i * 2);
+            author.setSurname("Ivanov_" + i * 5);
+
+            authorService.saveAuthor(author);
+
+        }
+    }
 }
+

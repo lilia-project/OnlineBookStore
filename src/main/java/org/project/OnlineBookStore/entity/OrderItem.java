@@ -6,8 +6,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Setter
@@ -26,7 +24,5 @@ public class OrderItem {
     private Long count;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "client_order_id")
     private Order order;
-
 }
