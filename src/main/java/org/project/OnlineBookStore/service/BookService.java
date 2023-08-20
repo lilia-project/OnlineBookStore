@@ -30,14 +30,6 @@ public class BookService {
         return bookRepository.findById(id);
     }
 
-    public void deleteBook(final Book book) {
-        bookRepository.delete(book);
-    }
-
-    public void deleteBook(final Long id) {
-        bookRepository.deleteById(id);
-    }
-
     //    @PreAuthorize("hasRole('ADMIN')")
     public Book update(Long bookId, Book book) {
         final var toUpdate = bookRepository.findById(bookId);
@@ -59,5 +51,14 @@ public class BookService {
 
         return updated;
     }
+
+    public void deleteBook(final Long id) {
+        bookRepository.deleteById(id);
+    }
+
+    public void deleteBook(final Book book) {
+        bookRepository.delete(book);
+    }
+
 
 }

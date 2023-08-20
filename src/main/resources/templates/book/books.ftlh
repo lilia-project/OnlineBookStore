@@ -25,6 +25,17 @@
             <div class="container">
                 <tr><a href="/books/create-book-page">ADD NEW BOOK</a></tr>
             </div>
+             <h1>Select Your Preferred Book Genre:</h1>
+                <select>
+                    <option value="science_fiction">Science Fiction</option>
+                    <option value="mystery_thrillers">Mystery and Thrillers</option>
+                    <option value="romance">Romance</option>
+                    <option value="fantasy">Fantasy</option>
+                    <!-- Додайте інші опції тут -->
+                </select>
+            <div class="container">
+                <tr><a href="/books/filter">FILTER BOOK</a></tr>
+            </div>
         <br>
         <table border="2px" id = "booksTable">
            <thead>

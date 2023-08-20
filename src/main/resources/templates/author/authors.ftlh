@@ -26,6 +26,18 @@
                 <tr><a href="/authors/create-author-page">ADD NEW AUTHOR</a></tr>
             </div>
         <br>
+            <div class="container">
+             <h1>Select Your Preferred Book Genre:</h1>
+                <select>
+                    <option value="science_fiction">Science Fiction</option>
+                    <option value="mystery_thrillers">Mystery and Thrillers</option>
+                    <option value="romance">Romance</option>
+                    <option value="fantasy">Fantasy</option>
+                    <!-- Додайте інші опції тут -->
+                </select>
+                <tr><a href="/authors/filter">FILTER</a></tr>
+            </div>
+        <br>
         <table border="2px" id = "authorsTable">
            <thead>
              <tr>
@@ -40,7 +52,7 @@
                         <td><a href="/authors/${author.getId()}"><p>${author.getId()}</a></td>
                         <td>${author.getName()}</td>
                         <td>${author.getSurname()}</td>
-                <td><button onclick="window.location.href = '/authors/${author.id}/edit-author-page'">Edit</button></td>
+                        <td><button onclick="window.location.href = '/authors/${author.id}/edit-author-page'">Edit</button></td>
 
                         <td><button onclick="deleteAuthor('${author.id}')">Delete</button></td>
                     </tr>
