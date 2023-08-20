@@ -1,17 +1,15 @@
-function editBook(event, bookId) {
+function editAuthor(event, authorId) {
   event.preventDefault();
 
   const name = document.getElementById("name").value;
-  const price = document.getElementById("price").value;
-  const stock = document.getElementById("stock").value;
+  const price = document.getElementById("surname").value;
 
    const requestBody = JSON.stringify({
       name: name,
-      price: price,
-      stock: stock
+      surname: surname,
     });
 
-  const url = `/books/${bookId}`;
+  const url = `/authors/${authorId}`;
 
   // Perform an AJAX request to create a new student
   fetch(url, {
@@ -22,7 +20,7 @@ function editBook(event, bookId) {
     body: requestBody,
   })
   .then(response => {
-      window.location.href = `/books/${bookId}`;
+      window.location.href = `/authors/${authorId}`;
   })
   .catch(error => {
       console.error(error);
