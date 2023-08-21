@@ -11,7 +11,7 @@ function editAuthor(event, authorId) {
 
   const url = `/authors/${authorId}`;
 
-  // Perform an AJAX request to create a new student
+  // Perform an AJAX request to create a new author
   fetch(url, {
     method: 'PUT',
     headers: {

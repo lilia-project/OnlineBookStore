@@ -4,14 +4,14 @@ function editCategory(event, categoryId) {
   const name = document.getElementById("name").value;
 
    const requestBody = JSON.stringify({
-      name: name,
+      name: name
     });
 
   const url = `/categories/${categoryId}`;
 
   // Perform an AJAX request to create a new category
   fetch(url, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },

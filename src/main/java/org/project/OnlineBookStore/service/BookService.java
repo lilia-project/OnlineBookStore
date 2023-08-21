@@ -38,9 +38,8 @@ public class BookService {
         toUpdate.setPrice(book.getPrice());
         toUpdate.setStock(book.getStock());
 
-        Book updated = bookRepository.save(toUpdate);
+        return bookRepository.save(toUpdate);
 //        log.info("Updated book: {}", updated);
-        return updated;
     }
 
     public void deleteBook(final Long id) {

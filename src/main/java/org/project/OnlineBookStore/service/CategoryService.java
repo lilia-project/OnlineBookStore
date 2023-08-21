@@ -4,7 +4,6 @@ import org.project.OnlineBookStore.entity.Category;
 import org.project.OnlineBookStore.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,13 +30,10 @@ public class CategoryService {
     }
 
     public Category update(Long categoryId, Category category) {
-        final var toUpdate = categoryRepository.findById(categoryId);
-        final var existingCategory = toUpdate.get();
+        final var toUpdate = categoryRepository.findById(categoryId).orElseThrow();
+        toUpdate.setName(category.getName());
 
-        if (StringUtils.hasText(category.getName())) {
-            existingCategory.setName(category.getName());
-        }
-        return categoryRepository.save(existingCategory);
+        return categoryRepository.save(toUpdate);
     }
 
     public void deleteCategory(final Long id) {

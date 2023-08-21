@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Category-edit page</title>
-     <link rel="stylesheet" href="../styles.css">
-     <script defer src="js/category-edit.js"></script>
+     <link rel="stylesheet" href="/styles.css">
+     <script defer src="/js/category-edit.js"></script>
 
 </head>
 <body>
