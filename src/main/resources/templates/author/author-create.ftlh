@@ -25,8 +25,8 @@
                  <form id="createForm" onsubmit="createAuthor(event)">
                        <label for="name">Author name:</label>
                        <input type="text" id="name" placeholder="name" required>
-                       <label for="name">Author surname:</label>
-                       <input type="text" id="surName" placeholder="surName" required>
+                       <label for="surname">Author surname:</label>
+                       <input type="text" id="surname" placeholder="surname" required>
                        
                        <button type="submit">Create</button>
                  </form>
@@ -37,7 +37,7 @@
         <!-- Підвал сторінки можна розмістити тут -->
     </footer>
 
-    <script src="/js/book-create.js"></script>
+    <script src="/js/author-create.js"></script>
 </body>
 </html>
 

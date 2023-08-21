@@ -14,7 +14,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping(path = "/authors")
 public class AuthorController {
-    private AuthorService authorService;
+    private final AuthorService authorService;
 
     @Autowired
     public AuthorController(AuthorService authorService) {

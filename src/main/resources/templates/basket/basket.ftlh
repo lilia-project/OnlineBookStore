@@ -26,6 +26,7 @@
                     <th>name</th>
                     <th>price</th>
                     <th>stock</th>
+                    <th>total</th>
                 </tr>
             </thead>
 

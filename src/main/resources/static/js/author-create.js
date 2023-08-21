@@ -6,7 +6,7 @@ function createAuthor(event) {
   //инпут тега,
   //.value отдает введенное значение в инпут
   const name = document.getElementById("name").value;
-  const price = document.getElementById("surname").value;
+  const surname = document.getElementById("surname").value;
 
   const requestBody = JSON.stringify({
     name: name,

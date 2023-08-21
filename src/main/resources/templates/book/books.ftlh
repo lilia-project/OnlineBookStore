@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles.css">
     <script defer src="/js/book-edit.js"></script>
     <script defer src="/js/book-filter.js"></script>
+    <script defer src="/js/book-filter-by-author.js"></script>
     <script defer src="/js/book-delete.js"></script>
 </head>
 <body>
@@ -26,16 +27,23 @@
             <div class="container">
                 <tr><a href="/books/create-book-page">ADD NEW BOOK</a></tr>
             </div>
-             <p>Filter by genre:</p>
+            <tr>
                 <select id="bookCategory">
                 <#list categories as category>
                     <option value="${category.id}">${category.name}</option>
                 </#list>
                 </select>
+            </tr>
             <div class="container">
-                 <button onclick="filterBook()">FILTER BOOK</button>
-
+                 <button onclick="filterBook()">FILTER BY GENRE</button>
             </div>
+          
+            <div class="container">
+            <button onclick="filterBookByAuthor()">FILTER BY AUTHOR</button>
+            </div>
+
+
+
         <br>
         <table border="2px" id = "booksTable">
            <thead>
