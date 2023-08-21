@@ -69,9 +69,4 @@ public class AuthorController {
         authorService.deleteAuthor(id);
     }
 
-    @GetMapping("/filter")
-    public void filtrate() {
-        authorService.findAll();
-    }
-
 }

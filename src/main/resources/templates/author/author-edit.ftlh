@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Author-edit page</title>
-     <link rel="stylesheet" href="../styles.css">
-     <script defer src="js/author-edit.js"></script>
+     <link rel="stylesheet" href="/styles.css">
+     <script defer src="/js/author-edit.js"></script>
 
 </head>
 <body>
@@ -28,7 +28,7 @@
                         <label for="name">Name: <span aria-label="required">*</span></label>
                         <input type="text" id="name" value="${author.name}" required>
                         <label for="name">Surname: <span aria-label="required">*</span></label>
-                        <input type="text" id="surName" value="${author.surname}" required>
+                        <input type="text" id="surname" value="${author.surname}" required>
                         <input class="button" type="submit" value="Update">
                      </form>
                 </div>

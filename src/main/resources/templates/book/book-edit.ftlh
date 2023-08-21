@@ -34,9 +34,6 @@
 
                         <input class="button" type="submit" value="Update">
                      </form>
-
-
-
                 </div>
             </div>
         </tbody>

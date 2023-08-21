@@ -26,7 +26,7 @@
             <div class="container">
                 <tr><a href="/books/create-book-page">ADD NEW BOOK</a></tr>
             </div>
-             <h3>Select your preferred book genre:</h3>
+             <p>Filter by genre:</p>
                 <select id="bookCategory">
                 <#list categories as category>
                     <option value="${category.id}">${category.name}</option>

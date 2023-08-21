@@ -4,7 +4,6 @@ import org.project.OnlineBookStore.entity.Author;
 import org.project.OnlineBookStore.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,16 +30,12 @@ public class AuthorService {
     }
 
     public Author update(Long authorId, Author author) {
-        final var toUpdate = authorRepository.findById(authorId);
-        final var existingAuthor = toUpdate.get();
+        final var toUpdate = authorRepository.findById(authorId).orElseThrow();
 
-        if (StringUtils.hasText(author.getName())) {
-            existingAuthor.setName(author.getName());
-        }
-        if (StringUtils.hasText(author.getSurname())) {
-            existingAuthor.setSurname(author.getSurname());
-        }
-        return authorRepository.save(existingAuthor);
+        toUpdate.setName(author.getName());
+        toUpdate.setSurname(author.getSurname());
+
+        return authorRepository.save(toUpdate);
     }
 
     public void deleteAuthor(final Author author) {

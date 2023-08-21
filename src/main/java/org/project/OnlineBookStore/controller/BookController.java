@@ -1,8 +1,10 @@
 package org.project.OnlineBookStore.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.project.OnlineBookStore.entity.Author;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.entity.Category;
+import org.project.OnlineBookStore.service.AuthorService;
 import org.project.OnlineBookStore.service.BookService;
 import org.project.OnlineBookStore.service.CategoryService;
 import org.springframework.stereotype.Controller;
@@ -20,6 +22,7 @@ import java.util.Set;
 public class BookController {
     private final BookService bookService;
     private final CategoryService categoryService;
+    private final AuthorService authorService;
 
     @GetMapping("/create-book-page") //вызвать форму для создания нового экземпляра
     public String createBookForm() {
@@ -58,16 +61,6 @@ public class BookController {
         return "book/book-edit";
     }
 
-    @GetMapping("/filter") //вызвать форму для правки экземпляра
-    public String filterBook(@RequestParam Long categoryId, Model model) {
-        Set<Book> books = bookService.findAll(categoryId);
-        List<Category> categories = categoryService.findAll();
-        model.addAttribute("books", books);
-        model.addAttribute("categories", categories);
-
-        return "book/books";
-    }
-
     @PutMapping("/{bookId}") //обновить
     @ResponseBody
     public Book update(@RequestBody @Valid Book book, @PathVariable Long bookId) {
@@ -78,6 +71,26 @@ public class BookController {
     @ResponseBody
     public void delete(@PathVariable Long id) {
         bookService.deleteBook(id);
+    }
+
+    @GetMapping("/filter") //фильтр по категории
+    public String filterBook(@RequestParam Long categoryId, Model model) {
+        Set<Book> books = bookService.findAll(categoryId);
+        List<Category> categories = categoryService.findAll();
+        model.addAttribute("books", books);
+        model.addAttribute("categories", categories);
+
+        return "book/books";
+    }
+
+    @GetMapping("/filter/author") //filter by author
+    public String filterBookByAuthor(@RequestParam Long authorId, Model model) {
+        Set<Book> books = bookService.findAll(authorId);
+        List<Author> authors = authorService.findAll();
+        model.addAttribute("books", books);
+        model.addAttribute("authors", authors);
+
+        return "book/books";
     }
 
 }

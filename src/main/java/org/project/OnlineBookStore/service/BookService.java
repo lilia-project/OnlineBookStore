@@ -39,9 +39,7 @@ public class BookService {
         toUpdate.setStock(book.getStock());
 
         Book updated = bookRepository.save(toUpdate);
-
-//        log.info("Updated course: {}", updated);
-
+//        log.info("Updated book: {}", updated);
         return updated;
     }
 

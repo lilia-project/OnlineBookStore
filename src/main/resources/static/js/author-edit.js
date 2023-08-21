@@ -2,18 +2,18 @@ function editAuthor(event, authorId) {
   event.preventDefault();
 
   const name = document.getElementById("name").value;
-  const price = document.getElementById("surname").value;
+  const surname = document.getElementById("surname").value;
 
    const requestBody = JSON.stringify({
       name: name,
-      surname: surname,
+      surname: surname
     });
 
   const url = `/authors/${authorId}`;
 
   // Perform an AJAX request to create a new student
   fetch(url, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },

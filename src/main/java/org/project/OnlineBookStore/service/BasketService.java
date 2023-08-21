@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class BasketService {
-    private BasketRepository basketRepository;
+    private final BasketRepository basketRepository;
 
     @Autowired
     public BasketService(BasketRepository basketRepository) {
