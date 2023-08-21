@@ -5,7 +5,18 @@ insert into public.author(id, name, surname)
             (4, 'Mikhail', 'Sholokhov'),
             (5, 'Albert', 'Camus'),
             (6, 'Jerome', 'Salinger'),
-            (7, 'Andrey', 'Platonov');
+            (7, 'Dante', 'Alighieri'),
+            (8, 'Margaret', 'Mitchell'),
+            (9, 'Jane', 'Austen'),
+            (10, 'Andrey', 'Platonov');
+
+/*INSERT INTO public.book(id, name, price, stock, category_id, rating_id)
+	VALUES (1, 'Lolita', 100, 6, 1, 0),
+	        (2, 'The Old Man and the Sea ', 100, 6, 1, 0),
+	        (3, '1984', 10, 3, 3, 0),
+	        (4, 'Gone with the Wind', 170, 63, 6, 0),
+	        (5, 'Pride and Prejudice', 760, 2, 4, 0),
+	        (6, 'The Divine Comedy', 76, 5, 4, 0);*/
 
 insert into public.category(id, name)
 	VALUES (1, 'Detectives and thrillers'),
@@ -24,3 +35,4 @@ insert into public.category(id, name)
 
 select setval((select pg_get_serial_sequence('public.author', 'id')), (select max(id) from public.author));
 select setval((select pg_get_serial_sequence('public.category', 'id')), (select max(id) from public.category));
+select setval((select pg_get_serial_sequence('public.book', 'id')), (select max(id) from public.book));

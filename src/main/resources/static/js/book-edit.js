@@ -15,7 +15,7 @@ function editBook(event, bookId) {
 
   // Perform an AJAX request to create a new student
   fetch(url, {
-    method: 'PATCH',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },

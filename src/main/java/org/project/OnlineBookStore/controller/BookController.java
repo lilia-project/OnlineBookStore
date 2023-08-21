@@ -1,8 +1,10 @@
 package org.project.OnlineBookStore.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.project.OnlineBookStore.entity.Book;
+import org.project.OnlineBookStore.entity.Category;
 import org.project.OnlineBookStore.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.project.OnlineBookStore.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,16 +12,14 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping(path = "/books")
 public class BookController {
-    private BookService bookService;
-
-    @Autowired
-    public BookController(BookService bookService) {
-        this.bookService = bookService;
-    }
+    private final BookService bookService;
+    private final CategoryService categoryService;
 
     @GetMapping("/create-book-page") //вызвать форму для создания нового экземпляра
     public String createBookForm() {
@@ -32,11 +32,12 @@ public class BookController {
         return "redirect:/books";
     }
 
-
     @GetMapping //получить все
     public String getAllBooks(Model model) {
         final List<Book> books = bookService.findAll();
+        List<Category> categories = categoryService.findAll();
         model.addAttribute("books", books);
+        model.addAttribute("categories", categories);
         return "book/books";
     }
 
@@ -55,6 +56,16 @@ public class BookController {
         model.addAttribute("book", book.get());
 
         return "book/book-edit";
+    }
+
+    @GetMapping("/filter") //вызвать форму для правки экземпляра
+    public String filterBook(@RequestParam Long categoryId, Model model) {
+        Set<Book> books = bookService.findAll(categoryId);
+        List<Category> categories = categoryService.findAll();
+        model.addAttribute("books", books);
+        model.addAttribute("categories", categories);
+
+        return "book/books";
     }
 
     @PutMapping("/{bookId}") //обновить

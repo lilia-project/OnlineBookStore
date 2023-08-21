@@ -4,10 +4,10 @@ import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class BookService {
@@ -32,20 +32,13 @@ public class BookService {
 
     //    @PreAuthorize("hasRole('ADMIN')")
     public Book update(Long bookId, Book book) {
-        final var toUpdate = bookRepository.findById(bookId);
+        final var toUpdate = bookRepository.findById(bookId).orElseThrow();
 
-//        if (toUpdate.isEmpty()) {
-//            log.warn("Could not find a course by id {}", courseId);
-//            throw new ResourceNotFoundException(courseId, "Could not find a course with id {}");
-//        }
+        toUpdate.setName(book.getName());
+        toUpdate.setPrice(book.getPrice());
+        toUpdate.setStock(book.getStock());
 
-        final var existingBook = toUpdate.get();
-
-        if (StringUtils.hasText(book.getName())) {
-            existingBook.setName(book.getName());
-        }
-
-        Book updated = bookRepository.save(existingBook);
+        Book updated = bookRepository.save(toUpdate);
 
 //        log.info("Updated course: {}", updated);
 
@@ -60,5 +53,8 @@ public class BookService {
         bookRepository.delete(book);
     }
 
+    public Set<Book> findAll(Long categoryId) {
+        return bookRepository.findAllByCategoryId(categoryId);
 
+    }
 }
