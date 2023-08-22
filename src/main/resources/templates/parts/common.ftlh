@@ -9,12 +9,13 @@
      <title>Online book store</title>
     <link rel="stylesheet" href="../styles1.css">
 
+    <script defer src="/js/book-edit.js"></script>
+    <script defer src="/js/book-filter.js"></script>
+    <script defer src="/js/book-filter-by-author.js"></script>
+    <script defer src="/js/book-delete.js"></script>
+
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-          crossorigin="anonymous">
 
 </head>
 
@@ -31,8 +32,6 @@
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
 <#include "top-row.ftlh">
-
-
 <#include "navbar.ftlh">
 <div class="container mt-5">
     <#nested>

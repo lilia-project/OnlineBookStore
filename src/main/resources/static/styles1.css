@@ -27,12 +27,12 @@
         }
         /* Зміна стилю для назви магазину "Bookstore" */
         .navbar-brand.custom-font {
-            font-family: 'Arial', sans-serif; /* Замініть на власний шрифт */
+            font-family: 'Brush Script Std', cursive, sans-serif; /* Замініть на власний шрифт */
             font-size: 30px; /* Збільшений розмір шрифту */
             font-weight: bold; /* Товщина шрифту */
         }
         /* Зміна стилю для "Register" */
         .login-register .text-white {
-            font-size: 14px; /* Розмір шрифту */
+            font-size: 13px; /* Розмір шрифту */
         }
     </style>
