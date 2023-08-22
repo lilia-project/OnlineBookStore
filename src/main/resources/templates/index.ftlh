@@ -47,19 +47,12 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand text-white custom-font">LETTER <img src="/book.jpeg" class="mr-2" width="30" height="30"></a>
-            <div class="login-register">
-                <a href="#" class="text-white">Login</a> | <a href="#" class="text-white">Logout</a><br>
-                <a href="#" class="text-white">Register</a>
-            </div>
-        </div>
-    </nav>
-
-        <!-- Додатковий ряд вкладок -->
+  <!-- Додатковий ряд вкладок -->
         <div class="container mt-2 small-tabs">
             <ul class="nav nav-tabs justify-content-end">
+                <li class="nav-item">
+                     <a class="nav-link" href="#">Contact</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Delivery</a>
                 </li>
@@ -74,6 +67,16 @@
                 </li>
             </ul>
         </div>
+
+  <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand text-white custom-font">LETTER <img src="/book.jpeg" class="mr-2" width="30" height="30"></a>
+            <div class="login-register">
+                <a href="#" class="text-white">Login</a> | <a href="#" class="text-white">Logout</a><br>
+                <a href="#" class="text-white">Register</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Верхній ряд вкладок -->
     <div class="container mt-2">
