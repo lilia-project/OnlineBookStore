@@ -19,32 +19,32 @@
     </header>
 
     <main>
-        <table border="2px">
-            <thead>
-                <tr>
-                    <th>book id</th>
-                    <th>name</th>
-                    <th>price</th>
-                    <th>stock</th>
-                    <th>total</th>
-                </tr>
-            </thead>
+       <h1>Your Cart</h1>
+           <table id="cart-table">
+               <thead>
+                   <tr>
+                       <th>Book ID</th>
+                       <th>Name</th>
+                       <th>Price</th>
+                       <th>Stock</th>
+                       <th>Total</th>
+                   </tr>
+               </thead>
+               <tbody id="cart-items">
+                   <!-- Тут будуть додаватися позиції замовлення -->
+               </tbody>
+               <tfoot>
+                   <tr>
+                       <td colspan="4">Total:</td>
+                       <td id="cart-total">0</td>
+                   </tr>
+               </tfoot>
+           </table>
+           <button id="checkout-btn">Checkout</button>
 
-            <tbody>
-                <div>
-                    <tr>
-                       <td>${book.getId()}</td>
-                       <td>${book.getName()}</td>
-                       <td>${book.getPrice()}</td>
-                       <td>${book.getStock()}</td>
-                    </tr>
-                </div>
-
-
-
-            </tbody>
-        </table>
-    </main>
+           <script>
+               // Додайте тут логіку з JavaScript, як показано в попередніх відповідях.
+           </script>
 
     <footer>
         <!-- Підвал сторінки можна розмістити тут -->

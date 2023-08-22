@@ -11,6 +11,7 @@
     <script defer src="/js/book-delete.js"></script>
 </head>
 <body>
+
     <header>
        <div class="container">
           <div id="branding">
@@ -23,6 +24,7 @@
     </header>
 
     <main>
+
         <br>
             <div class="container">
                 <tr><a href="/books/create-book-page">ADD NEW BOOK</a></tr>
@@ -39,10 +41,32 @@
             </div>
           
             <div class="container">
-            <button onclick="filterBookByAuthor()">FILTER BY AUTHOR</button>
+            <button onclick="filterBookByAuthor()">SEARCH BY AUTHOR</button>
             </div>
 
-
+<table class="table table-dark table-striped-columns">
+  <thead>
+    <tr>
+      <th scope="col">book id</th>
+      <th scope="col">name</th>
+      <th scope="col">price</th>
+      <th scope="col">stock</th>
+    </tr>
+  </thead>
+  <tbody>
+                  <#list books as book>
+                      <tr data-book-id = book.getId()>
+                          <td><a href="/books/${book.getId()}"><p>${book.getId()}</a></td>
+                          <td>${book.getName()}</td>
+                          <td>${book.price!'-'}</td>
+                          <td>${book.stock!'-'}</td>
+                          <td><button onclick="window.location.href = '/books/${book.id}/edit-book-page'">Edit</button></td>
+                          <td><button onclick="deleteBook('${book.id}')">Delete</button></td>
+                          <td><button onclick="buyBook('${book.id}')">Buy</button></td>
+                      </tr>
+                  </#list>
+  </tbody>
+</table>
 
         <br>
         <table border="2px" id = "booksTable">

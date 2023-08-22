@@ -6,25 +6,22 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Setter
 @Getter
 @NoArgsConstructor
-@Table(name = "basket")
-public class Basket {
+public class BasketItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
     @NotNull
-    private Long total;
-    @OneToOne
-    private User user;
-    @OneToMany(mappedBy = "basket", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<BasketItem> basketItems = new HashSet<>();
+    private Long bookId;
+    @NotNull
+    private Long unitPrice;
+    @NotNull
+    private Long count;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Basket basket;
 }

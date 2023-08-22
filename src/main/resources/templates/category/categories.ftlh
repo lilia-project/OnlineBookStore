@@ -12,7 +12,7 @@
     <header>
        <div class="container">
           <div id="branding">
-              <h1><span class="highlight">Category</span>store</h1>
+              <h1><span class="highlight">Book</span>store</h1>
           </div>
           <nav>
               <#include "../menu.ftlh">
