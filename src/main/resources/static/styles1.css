@@ -1,0 +1,38 @@
+ <style>
+        /* Стилізація зеленого кольору */
+        body {
+            background-color: #f2f2f2;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .navbar {
+            background-color: #5cb85c;
+        }
+        .btn-primary {
+            background-color: #5cb85c;
+            border-color: #5cb85c;
+        }
+        /* Додаткові стилі для реєстрації та логіну */
+        .login-register {
+            text-align: right;
+        }
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            text-align: center;
+        }
+        /* Зміна стилю для назви магазину "Bookstore" */
+        .navbar-brand.custom-font {
+            font-family: 'Arial', sans-serif; /* Замініть на власний шрифт */
+            font-size: 30px; /* Збільшений розмір шрифту */
+            font-weight: bold; /* Товщина шрифту */
+        }
+        /* Зміна стилю для "Register" */
+        .login-register .text-white {
+            font-size: 14px; /* Розмір шрифту */
+        }
+    </style>
