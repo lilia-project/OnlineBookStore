@@ -1,11 +1,12 @@
 <#include "security.ftlh">
 
-  <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-            <a class="navbar-brand text-white custom-font">LETTER <img src="/book.jpeg" class="mr-2" width="30" height="30"></a>
-            <div class="login-register">
-                <a href="#" class="text-white">Login</a> | <a href="#" class="text-white">Logout</a><br>
-                <a href="#" class="text-white">Register</a>
-            </div>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand text-white custom-font">LETTER <img class="mr-2" height="30" src="/img/book.jpeg"
+                                                                   width="30"></a>
+        <div class="login-register">
+            <a class="text-white" href="#">Login</a> | <a class="text-white" href="#">Logout</a><br>
+            <a class="text-white" href="#">Register</a>
         </div>
-    </nav>
+    </div>
+</nav>

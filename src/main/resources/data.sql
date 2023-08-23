@@ -33,6 +33,10 @@ insert into public.category(id, name)
             (12, 'Comics'),
             (13, 'Religion and Spirituality');
 
+insert into public.basket(id, total)
+	VALUES(1, 0);
+
 select setval((select pg_get_serial_sequence('public.author', 'id')), (select max(id) from public.author));
 select setval((select pg_get_serial_sequence('public.category', 'id')), (select max(id) from public.category));
 select setval((select pg_get_serial_sequence('public.book', 'id')), (select max(id) from public.book));
+select setval((select pg_get_serial_sequence('public.basket', 'id')), (select max(id) from public.basket));

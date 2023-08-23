@@ -54,4 +54,8 @@ public class BookService {
         return bookRepository.findAllByCategoryId(categoryId);
 
     }
+
+    public List<Book> getAllByIds(Set<Long> bookIds) {
+        return bookRepository.findAllById(bookIds);
+    }
 }

@@ -2,52 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Empty Page</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link href="../styles.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-           <div id="branding">
-               <h1><span class="highlight">Book</span>store</h1>
-           </div>
-           <nav>
-               <#include "../menu.ftlh">
-           </nav>
+<header>
+    <div class="container">
+        <div id="branding">
+            <h1><span class="highlight">Book</span>store</h1>
         </div>
-    </header>
+        <nav>
+            <#include "../menu.ftlh">
+        </nav>
+    </div>
+</header>
 
-    <main>
+<main>
 
-        <table border="2px">
-            <thead>
-                <tr>
-                    <th>book id</th>
-                    <th>name</th>
-                    <th>price</th>
-                    <th>stock</th>
-                </tr>
-            </thead>
+    <table border="2px">
+        <thead>
+        <tr>
+            <th>book id</th>
+            <th>name</th>
+            <th>price</th>
+            <th>stock</th>
+        </tr>
+        </thead>
 
-            <tbody>
-                <div>
-                    <tr>
-                       <td>${book.getId()}</td>
-                       <td>${book.getName()}</td>
-                       <td>${book.getPrice()}</td>
-                       <td>${book.getStock()}</td>
-                    </tr>
-                </div>
-            </tbody>
-        </table>
+        <tbody>
         <div>
-            <tr><a href="/basket">BUY</a></tr>
+            <tr>
+                <td>${book.getId()}</td>
+                <td>${book.getName()}</td>
+                <td>${book.getPrice()}</td>
+                <td>${book.getStock()}</td>
+            </tr>
         </div>
-    </main>
+        </tbody>
+    </table>
+    <div>
+        <tr><a href="/basket">BUY</a></tr>
+    </div>
+</main>
 
-    <footer>
-        <!-- Підвал сторінки можна розмістити тут -->
-    </footer>
+<footer>
+    <!-- Підвал сторінки можна розмістити тут -->
+</footer>
 </body>
 </html>

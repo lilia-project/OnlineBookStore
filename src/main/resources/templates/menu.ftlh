@@ -12,12 +12,12 @@
     </ul>
 </nav>
 <nav>
-<div id="cart">
-    <h2>your cart</h2>
-    <ul id="cart-items">
-        <!-- Тут будуть додаватися позиції замовлення -->
-    </ul>
-    <p>Total: <span id="cart-total">0</span> USD</p>
-    <a href="/basket">Checkout</a>
-</div>
+    <div id="cart">
+        <h2>your cart</h2>
+        <ul id="cart-items">
+            <!-- Тут будуть додаватися позиції замовлення -->
+        </ul>
+        <p>Total: <span id="cart-total">0</span> USD</p>
+        <a href="/basket">Checkout</a>
+    </div>
 </nav>
