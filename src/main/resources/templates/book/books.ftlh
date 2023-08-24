@@ -1,27 +1,6 @@
-<#import "../parts/common.ftlh" as c>
+<#import "/parts/common.ftlh" as c>
 
 <@c.page>
-<!-- Верхній ряд вкладок -->
-<div class="container mt-2">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="/index">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/books">Catalog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Discounts</a>
-        </li>
-        <div class="col-md-8">
-            <ul class="nav nav-tabs justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-heart"></i></a>
-                </li>
-            </ul>
-        </div>
-    </ul>
-</div>
 <br>
 <div class="container">
     <a class="btn btn-success btn-sm" href="/books/create-book-page">ADD NEW BOOK</a>
@@ -37,7 +16,7 @@
     <button type="button" class="close" data-dismiss="alert">x</button>
     <strong>Success! </strong> Product have added to your wishlist.
 </div>-->
-<table 2px class="table border="" id = "booksTable" table-light table-striped mt-7>
+<table class="table border="" id = "booksTable" table-light table-striped mt-7>
 <thead>
 <tr>
     <th>book id</th>

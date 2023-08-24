@@ -1,27 +1,6 @@
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-<!-- Верхній ряд вкладок -->
-<div class="container mt-2">
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link" href="/index">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/books">Catalog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Discounts</a>
-        </li>
-        <div class="col-md-8">
-            <ul class="nav nav-tabs justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><i class="bi bi-heart"></i></a>
-                </li>
-            </ul>
-        </div>
-    </ul>
-</div>
 
 <div class="container mt-4">
     <div class="row">
@@ -30,6 +9,7 @@
             <p>We offer a wide range of books for all genres and interests.</p>
         </div>
     </div>
+    <img class="mr-2" height="60" src="/img/book1.jpeg" width="60">
 
     <div class="row mt-4">
         <div class="col-md-6">

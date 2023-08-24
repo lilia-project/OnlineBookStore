@@ -1,53 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Empty Page</title>
-    <link href="../styles.css" rel="stylesheet">
-</head>
-<body>
-<header>
-    <div class="container">
-        <div id="branding">
-            <h1><span class="highlight">Book</span>store</h1>
-        </div>
-        <nav>
-            <#include "../menu.ftlh">
-        </nav>
-    </div>
-</header>
+<#import "/parts/common.ftlh" as c>
 
-<main>
+<@c.page>
+<table class="table border="" id = "booksTable" table-light table-striped mt-7>
+<thead>
+<tr>
+    <th>book id</th>
+    <th>name</th>
+    <th>price</th>
+    <th>stock</th>
+</tr>
+</thead>
+<tr data-book-id=${book.getId()}>
+    <td><a href="/books/${book.getId()}"><p>${book.getId()}</a></td>
+    <td>${book.getName()}</td>
+    <td>${book.price!'-'}</td>
+    <td>${book.stock!'-'}</td>
 
-    <table border="2px">
-        <thead>
-        <tr>
-            <th>book id</th>
-            <th>name</th>
-            <th>price</th>
-            <th>stock</th>
-        </tr>
-        </thead>
+    <td>
+        <button class="btn btn-success btn-sm" onclick="addBookToBasket(event,'${book.id}')">Buy</button>
+    </td>
 
-        <tbody>
-        <div>
-            <tr>
-                <td>${book.getId()}</td>
-                <td>${book.getName()}</td>
-                <td>${book.getPrice()}</td>
-                <td>${book.getStock()}</td>
-            </tr>
-        </div>
-        </tbody>
-    </table>
-    <div>
-        <tr><a href="/basket">BUY</a></tr>
-    </div>
-</main>
+</tr>
 
-<footer>
-    <!-- Підвал сторінки можна розмістити тут -->
-</footer>
-</body>
-</html>
+
+</@c.page>
