@@ -1,33 +1,62 @@
 package org.project.OnlineBookStore.entity;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Setter
 @Getter
-@NoArgsConstructor
 @Table(name = "consumer")
-public class User {
+public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "consumer_id")
     private Long id;
+
+    private String username;
+
+    private String password;
+
+    @NotBlank(message = "please fill the email")
+    private String email;
+
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
-    private Role role;
-    @OneToOne
-    @JoinColumn(name = "basket_id")
-    private Basket basket;
+    private Set<Role> roles;
 
-    @OneToOne
-    @JoinColumn(name = "wishlist_id")
-    private Wishlist wishlist;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getRoles();
+    }
 
-    public User(Long id, Role role) {
-        this.id = id;
-        this.role = role;
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
+    public boolean isAdmin() {
+        return getRoles().contains(Role.ADMIN);
     }
 }
