@@ -28,11 +28,6 @@ public class RegistrationController {
         return "registration";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
-
     @PostMapping("/registration")
     public String registrationPost(@RequestParam String username,
                                    @RequestParam String password,
@@ -44,6 +39,11 @@ public class RegistrationController {
         user.setRoles(Collections.singleton(Role.USER));
         userService.addUser(user, false);
         return "redirect:/login";
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login";
     }
 
     @GetMapping("/logout")
