@@ -41,12 +41,18 @@
         <button class="btn btn-success btn-sm" onclick="addBookToBasket(event,'${book.id}', '${_csrf.token}')">Buy</button>
     </td>
     <td>
+        <#if isAdmin>
         <button class="btn btn-primary btn-sm" onclick="window.location.href = '/books/${book.id}/edit-book-page'">
             Edit
         </button>
+        </#if>
     </td>
     <td>
-        <button class="btn btn-primary btn-sm" onclick="deleteBook('${book.id}','${_csrf.token}')">Delete</button>
+        <#if isAdmin>
+        <button class="btn btn-primary btn-sm" onclick="deleteBook('${book.id}','${_csrf.token}')">
+            Delete
+        </button>
+        </#if>
     </td>
 
 </tr>
