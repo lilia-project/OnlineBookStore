@@ -3,6 +3,7 @@ package org.project.OnlineBookStore.service;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class BookService {
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     public void saveBook(final Book book) {
         bookRepository.save(book);
     }
@@ -30,7 +31,7 @@ public class BookService {
         return bookRepository.findById(id);
     }
 
-    //    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')")
     public Book update(Long bookId, Book book) {
         final var toUpdate = bookRepository.findById(bookId).orElseThrow();
 
@@ -41,13 +42,9 @@ public class BookService {
         return bookRepository.save(toUpdate);
 //        log.info("Updated book: {}", updated);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteBook(final Long id) {
         bookRepository.deleteById(id);
-    }
-
-    public void deleteBook(final Book book) {
-        bookRepository.delete(book);
     }
 
     public Set<Book> findAll(Long categoryId) {

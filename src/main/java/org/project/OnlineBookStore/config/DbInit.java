@@ -1,7 +1,9 @@
 package org.project.OnlineBookStore.config;
 
+import lombok.RequiredArgsConstructor;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.entity.User;
+import org.project.OnlineBookStore.repository.BookRepository;
 import org.project.OnlineBookStore.service.BookService;
 import org.project.OnlineBookStore.service.UserService;
 import org.springframework.stereotype.Component;
@@ -10,15 +12,12 @@ import javax.annotation.PostConstruct;
 import java.util.Random;
 
 @Component
+@RequiredArgsConstructor
 public class DbInit {
     private final BookService bookService;
+    private final BookRepository bookRepository;
     private final UserService userService;
     private Random random = new Random();
-
-    public DbInit(BookService bookService, UserService userService) {
-        this.bookService = bookService;
-        this.userService = userService;
-    }
 
     @PostConstruct
     private void postConstructBook() {
@@ -30,7 +29,7 @@ public class DbInit {
             book.setPrice((long) (Math.random() * 501));
             book.setStock((long) (Math.random() * 101));
 
-            bookService.saveBook(book);
+            bookRepository.save(book);
         }
         final User user = new User();
         user.setEmail("u@gmail.com");

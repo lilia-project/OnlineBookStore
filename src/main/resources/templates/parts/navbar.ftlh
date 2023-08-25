@@ -5,14 +5,13 @@
         <a class="navbar-brand text-white custom-font">LETTER </a>
         <div class="login-register">
             <#if known>
-            Hello ${user.getEmail()}!
-            <a class="text-white" href="/logout">Logout</a>
+                Hello ${user.getEmail()}!
+                    <a class="text-white" href="/logout">Logout</a>
             <#else>
-            Hello unknown!
-            <a class="text-white" href="/login">Login</a><br>
-            <a class="text-white" href="/registration">Register</a>
-        </
-        #if>
+                Hello unknown!
+                <a class="text-white" href="/login">Login</a><br>
+                <a class="text-white" href="/registration">Register</a>
+            </#if>
     </div>
     </div>
 </nav>
