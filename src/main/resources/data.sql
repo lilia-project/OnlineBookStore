@@ -33,9 +33,6 @@ insert into public.category(id, name)
             (12, 'Comics'),
             (13, 'Religion and Spirituality');
 
-insert into public.basket(id, total)
-	VALUES(1, 0);
-
 insert into public.consumer(id, email, password, username)
 	VALUES (1, 'u@gmail.com', '$2a$08$Lw3Q5M7a/zcB23hxLHoGbuEOKbC/..czeObjaBc3l71XR54XAUdT.', 'u'),
 	        (2, 'admin@gmail.com', '$2a$08$Lw3Q5M7a/zcB23hxLHoGbuEOKbC/..czeObjaBc3l71XR54XAUdT.', 'a');
@@ -48,3 +45,4 @@ select setval((select pg_get_serial_sequence('public.author', 'id')), (select ma
 select setval((select pg_get_serial_sequence('public.category', 'id')), (select max(id) from public.category));
 select setval((select pg_get_serial_sequence('public.book', 'id')), (select max(id) from public.book));
 select setval((select pg_get_serial_sequence('public.basket', 'id')), (select max(id) from public.basket));
+select setval((select pg_get_serial_sequence('public.consumer', 'id')), (select max(id) from public.consumer));
