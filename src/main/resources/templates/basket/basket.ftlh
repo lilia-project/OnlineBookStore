@@ -2,7 +2,7 @@
 
 <@c.page>
 
-<table id="cart-table">
+<table class="table border="" id="cart-table">
     <thead>
     <tr>
         <th>Book ID</th>
@@ -20,14 +20,14 @@
         <td>${book.getName()}</td>
         <td>${book.price}</td>
         <td>${1}</td>
-        <td>${book.price *1}</td>
+        <td>${(book.price *1)}</td>
 
     </tr>
     </#list>
     </tbody>
     <tfoot>
     <tr>
-        <td colspan="4">Total:</td>
+        <td colspan="4">Total pay: </td>
         <td id="cart-total">0</td>
     </tr>
     </tfoot>

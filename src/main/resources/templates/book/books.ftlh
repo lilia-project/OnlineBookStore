@@ -3,7 +3,6 @@
 
 <@c.page>
 <div class="container">
-    ${isAdmin?c}
     <#if isAdmin>
     <a class="btn btn-success btn-sm" href="/books/create-book-page">ADD NEW BOOK</a>
     </#if>
@@ -39,6 +38,11 @@
 
     <td>
         <button class="btn btn-success btn-sm" onclick="addBookToBasket(event,'${book.id}', '${_csrf.token}')">Buy</button>
+    </td>
+    <td>
+        <a class="nav-link" href="/books"><i class="bi bi-heart"></i></a>
+<!--        <a class="btn btn-success btn-sm" href="/books/create-book-page"><i class="bi bi-heart"></i></a>-->
+
     </td>
     <td>
         <#if isAdmin>
