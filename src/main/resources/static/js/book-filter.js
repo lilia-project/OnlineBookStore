@@ -1,6 +1,10 @@
-function filterBook() {
+function searchBooks() {
   const bookCategoryId = document.getElementById("bookCategory").value;
-  const url = `/books/filter?categoryId=${bookCategoryId}`;
+  const bookAuthorId = document.getElementById("bookAuthor").value;
+  const bookTitle = document.getElementById("bookTitle").value;
+  const bookSort = document.getElementById("bookSort").value;
+
+  const url = `/books?authorId=${bookAuthorId}&categoryId=${bookCategoryId}&bookTitle=${bookTitle}&bookSort=${bookSort}`;
 
   // Perform an AJAX request to delete the course
   fetch(url, {

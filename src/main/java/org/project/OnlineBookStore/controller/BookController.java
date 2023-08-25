@@ -1,6 +1,7 @@
 package org.project.OnlineBookStore.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.project.OnlineBookStore.dto.BookFiltersDto;
 import org.project.OnlineBookStore.entity.Author;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.entity.Category;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 @Controller
 @RequiredArgsConstructor
@@ -75,24 +75,5 @@ public class BookController {
         bookService.deleteBook(id);
     }
 
-    @GetMapping("/filter") //фильтр по категории
-    public String filterBook(@RequestParam Long categoryId, Model model) {
-        Set<Book> books = bookService.findAll(categoryId);
-        List<Category> categories = categoryService.findAll();
-        model.addAttribute("books", books);
-        model.addAttribute("categories", categories);
-
-        return "book/books";
-    }
-
-    @GetMapping("/filter/author") //filter by author
-    public String filterBookByAuthor(@RequestParam Long authorId, Model model) {
-        Set<Book> books = bookService.findAll(authorId);
-        List<Author> authors = authorService.findAll();
-        model.addAttribute("books", books);
-        model.addAttribute("authors", authors);
-
-        return "book/books";
-    }
 
 }

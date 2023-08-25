@@ -1,5 +1,6 @@
 package org.project.OnlineBookStore.service;
 
+import org.project.OnlineBookStore.dto.BookFiltersDto;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +50,11 @@ public class BookService {
 
     public Set<Book> findAll(Long categoryId) {
         return bookRepository.findAllByCategoryId(categoryId);
-
     }
 
     public List<Book> getAllByIds(Set<Long> bookIds) {
         return bookRepository.findAllById(bookIds);
     }
+
+
 }
