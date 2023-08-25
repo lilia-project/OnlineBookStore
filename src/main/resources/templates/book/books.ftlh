@@ -1,9 +1,12 @@
+<#include "/parts/security.ftlh">
 <#import "/parts/common.ftlh" as c>
 
 <@c.page>
-<br>
 <div class="container">
+    ${isAdmin?c}
+    <#if isAdmin>
     <a class="btn btn-success btn-sm" href="/books/create-book-page">ADD NEW BOOK</a>
+    </#if>
     <select class="form-select mt-2" id="bookCategory">
         <#list categories as category>
         <option value="${category.id}">${category.name}</option>
@@ -35,7 +38,7 @@
     <td>${book.stock!'-'}</td>
 
     <td>
-        <button class="btn btn-success btn-sm" onclick="addBookToBasket(event,'${book.id}')">Buy</button>
+        <button class="btn btn-success btn-sm" onclick="addBookToBasket(event,'${book.id}', '${_csrf.token}')">Buy</button>
     </td>
     <td>
         <button class="btn btn-primary btn-sm" onclick="window.location.href = '/books/${book.id}/edit-book-page'">

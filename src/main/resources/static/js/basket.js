@@ -1,4 +1,4 @@
-function addBookToBasket(event, bookId) {
+function addBookToBasket(event, bookId, csrf) {
   event.preventDefault();
 
   const url = `/basket/item?bookId=${bookId}`;
@@ -9,6 +9,7 @@ function addBookToBasket(event, bookId) {
     redirect: 'follow', // default setting
     headers: {
       'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrf,
     },
 
   })

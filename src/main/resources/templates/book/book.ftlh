@@ -21,6 +21,6 @@
     </td>
 
 </tr>
-
+</table>
 
 </@c.page>

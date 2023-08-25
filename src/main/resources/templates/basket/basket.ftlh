@@ -23,8 +23,7 @@
         <td>${book.price *1}</td>
 
     </tr>
-    </
-    #list>
+    </#list>
     </tbody>
     <tfoot>
     <tr>
