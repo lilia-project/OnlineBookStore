@@ -46,6 +46,11 @@ public class RegistrationController {
         return "login";
     }
 
+    @PostMapping
+    public String inLogin() {
+        return "redirect:/";
+    }
+
     @GetMapping("/logout")
     public String logout(HttpServletRequest request) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

@@ -4,8 +4,15 @@
     <div class="container">
         <a class="navbar-brand text-white custom-font">LETTER </a>
         <div class="login-register">
-            <a class="text-white" href="/login">Login</a> | <a class="text-white" href="/logout">Logout</a><br>
+            <#if known>
+            Hello ${user.getEmail()}! |
+            <a class="text-white" href="/logout">Logout</a>
+            <#else>
+            <a class="text-white" href="/login">Login</a><br>
             <a class="text-white" href="/registration">Register</a>
-        </div>
+        </
+        #if>
+    </div>
     </div>
 </nav>
+

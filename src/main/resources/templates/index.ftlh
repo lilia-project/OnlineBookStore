@@ -1,14 +1,8 @@
 <#include "parts/security.ftlh">
+
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-<div>
-    <#if known>
-    Hello ${user.getEmail()}!
-    <#else>
-    Hello unknown!
-</#if>
-</div>
 
 <div class="container mt-4">
     <div class="row">
