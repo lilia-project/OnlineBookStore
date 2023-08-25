@@ -1,15 +1,24 @@
+<#include "parts/security.ftlh">
 <#import "parts/common.ftlh" as c>
 
 <@c.page>
-
+<div>
+    <#if known>
+    Hello ${user.getEmail()}!
+    <#else>
+    Hello unknown!
+</#if>
+</div>
 <div class="container mt-4">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <h2>Welcome to our bookstore!</h2>
             <p>We offer a wide range of books for all genres and interests.</p>
+            <img class="mr-2" height="300" src="/img/book.jpeg" width="300">
+
         </div>
+
     </div>
-    <img class="mr-2" height="60" src="/img/book1.jpeg" width="60">
 
     <div class="row mt-4">
         <div class="col-md-6">
