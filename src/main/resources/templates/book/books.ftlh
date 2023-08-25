@@ -6,13 +6,29 @@
     <#if isAdmin>
     <a class="btn btn-success btn-sm" href="/books/create-book-page">ADD NEW BOOK</a>
     </#if>
-    <select class="form-select mt-2" id="bookCategory">
-        <#list categories as category>
-        <option value="${category.id}">${category.name}</option>
-    </#list>
-    </select>
-    <button class="btn btn-primary mt-2" onclick="filterBook()">FILTER BY GENRE</button>
-    <button class="btn btn-primary mt-2" onclick="filterBookByAuthor()">SEARCH BY AUTHOR</button>
+    <div class="mb-3>
+        <label class="form-label">Book category:</label>
+        <select class="form-select" id="bookCategory">
+            <option value="" selected="selected"></option>
+            <#list categories as category>
+                 <option value="${category.id}">${category.name}</option>
+            </#list>
+        </select>
+    </div>
+    <div class="mb-3>
+        <label class="form-label">Book author:</label>
+        <select class="form-select" id="bookAuthor">
+            <option value="" selected="selected"></option>
+            <#list authors as author>
+                <option value="${author.id}">${author.name + ' '+ author.surname}</option>
+            </#list>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="bookTitle" class="form-label">Book title:</label>
+        <input class="form-control" type="text" id="bookTitle" placeholder="book title">
+    </div>
+    <button class="btn btn-primary mt-3" onclick="searchBooks()">Search</button>
 </div>
 <!--<div class="alert alert-success" id="success-alert">
     <button type="button" class="close" data-dismiss="alert">x</button>

@@ -39,8 +39,10 @@ public class BookController {
     public String getAllBooks(Model model) {
         final List<Book> books = bookService.findAll();
         List<Category> categories = categoryService.findAll();
+        List<Author> authors = authorService.findAll();
         model.addAttribute("books", books);
         model.addAttribute("categories", categories);
+        model.addAttribute("authors", authors);
         return "book/books";
     }
 
