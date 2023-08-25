@@ -1,6 +1,9 @@
+
 <#import "/parts/common.ftlh" as c>
 
 <@c.page>
+<script defer src="/js/book-edit.js"></script>
+
 <form id="editForm" onsubmit="editBook(event, '${book.id}')">
     <div class="row">
         <div class="col-md-4">
