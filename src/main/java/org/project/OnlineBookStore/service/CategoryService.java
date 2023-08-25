@@ -3,6 +3,7 @@ package org.project.OnlineBookStore.service;
 import org.project.OnlineBookStore.entity.Category;
 import org.project.OnlineBookStore.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,7 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     public void saveCategory(final Category category) {
         categoryRepository.save(category);
     }
@@ -28,19 +29,16 @@ public class CategoryService {
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     public Category update(Long categoryId, Category category) {
         final var toUpdate = categoryRepository.findById(categoryId).orElseThrow();
         toUpdate.setName(category.getName());
 
         return categoryRepository.save(toUpdate);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     public void deleteCategory(final Long id) {
         categoryRepository.deleteById(id);
     }
 
-    public void deleteCategory(final Category category) {
-        categoryRepository.delete(category);
-    }
 }

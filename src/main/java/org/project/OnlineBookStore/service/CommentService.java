@@ -29,7 +29,4 @@ public class CommentService {
         return commentRepository.findById(id);
     }
 
-    public void deleteComment(final Comment comment) {
-        commentRepository.delete(comment);
-    }
 }
