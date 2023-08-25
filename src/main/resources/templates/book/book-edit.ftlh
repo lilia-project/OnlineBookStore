@@ -18,7 +18,7 @@
             <input id="stock" required type="number" value="${book.stock}">
         </div>
     </div>
-    <input name="_csrf" type="hidden" value="${_csrf.token}"/>
+    <input id="_csrf" name="_csrf" type="hidden" value="${_csrf.token}"/>
     <input class="button" type="submit" value="Update">
 </form>
 </@c.page>

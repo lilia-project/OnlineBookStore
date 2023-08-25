@@ -12,7 +12,7 @@
         <input id="password" name="password" required type="password">
     </div>
     <div>
-        <input name="_csrf" type="hidden" value="${_csrf.token}"/>
+        <input id="_csrf" name="_csrf" type="hidden" value="${_csrf.token}"/>
         <button type="submit">Login</button>
     </div>
 </form>

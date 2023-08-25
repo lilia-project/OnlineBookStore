@@ -43,7 +43,7 @@
         </button>
     </td>
     <td>
-        <button class="btn btn-primary btn-sm" onclick="deleteBook('${book.id}')">Delete</button>
+        <button class="btn btn-primary btn-sm" onclick="deleteBook('${book.id}','${_csrf.token}')">Delete</button>
     </td>
 
 </tr>

@@ -41,7 +41,7 @@
 </div>
 
 
-<footer class="mt-4 py-2 bg-light footer">
+<footer class="mt-4 py-2 bg-light">
     <div class="container text-center">
         <p>&copy; 2023 Bookstore. All rights reserved.</p>
     </div>

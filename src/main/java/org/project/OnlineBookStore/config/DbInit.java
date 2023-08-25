@@ -1,6 +1,7 @@
 package org.project.OnlineBookStore.config;
 
 import org.project.OnlineBookStore.entity.Book;
+import org.project.OnlineBookStore.entity.User;
 import org.project.OnlineBookStore.service.BookService;
 import org.project.OnlineBookStore.service.UserService;
 import org.springframework.stereotype.Component;
@@ -31,19 +32,19 @@ public class DbInit {
 
             bookService.saveBook(book);
         }
-//        final User user = new User();
-//        user.setEmail("user@gmail.com");
-//        user.setUsername("cat");
-//        user.setPassword("cat");
-//
-//        userService.addUser(user, false);
-//
-//        final User admin = new User();
-//        admin.setEmail("admin@gmail.com");
-//        admin.setUsername("admin");
-//        admin.setPassword("admin");
-//
-//        userService.addUser(admin, true);
+        final User user = new User();
+        user.setEmail("u@gmail.com");
+        user.setUsername("u");
+        user.setPassword("$2a$08$Lw3Q5M7a/zcB23hxLHoGbuEOKbC/..czeObjaBc3l71XR54XAUdT.");
+
+        userService.addUser(user, false);
+
+        /*final User admin = new User();
+        admin.setEmail("admin@gmail.com");
+        admin.setUsername("admin");
+        admin.setPassword("admin");
+
+        userService.addUser(admin, true);*/
 
     }
 

@@ -1,9 +1,12 @@
-function deleteBook(bookId) {
+function deleteBook(bookId, csrf) {
   const url = `/books/${bookId}`;
 
   // Perform an AJAX request to delete the course
   fetch(url, {
     method: 'DELETE',
+     headers: {
+          'X-CSRF-TOKEN': csrf,
+        },
   })
     .then(response => {
 

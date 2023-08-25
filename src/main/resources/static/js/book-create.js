@@ -8,6 +8,7 @@ function createBook(event) {
   const name = document.getElementById("name").value;
   const price = document.getElementById("price").value;
   const stock = document.getElementById("stock").value;
+  const csrf = document.getElementById("_csrf").value;
 
   const requestBody = JSON.stringify({
     name: name,
@@ -23,6 +24,7 @@ function createBook(event) {
     redirect: 'follow', // default setting
     headers: {
       'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrf,
     },
     body: requestBody,
   })
