@@ -1,5 +1,6 @@
 package org.project.OnlineBookStore.controller;
 
+import com.sun.source.tree.Tree;
 import org.project.OnlineBookStore.entity.User;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -7,13 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
 import java.util.Objects;
 
 @Controller
 @RequestMapping(path = {"/", "/index", "/home"})
 public class IndexController {
 
-    //    @GetMapping
+//    @GetMapping
 //    public String index() {
 //        return "index";
 //    }

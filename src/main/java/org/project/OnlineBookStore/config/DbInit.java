@@ -1,8 +1,10 @@
 package org.project.OnlineBookStore.config;
 
 import org.project.OnlineBookStore.entity.Book;
+import org.project.OnlineBookStore.entity.User;
 import org.project.OnlineBookStore.service.AuthorService;
 import org.project.OnlineBookStore.service.BookService;
+import org.project.OnlineBookStore.service.UserService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -11,12 +13,12 @@ import java.util.Random;
 @Component
 public class DbInit {
     private final BookService bookService;
-    private final AuthorService authorService;
+    private final UserService userService;
     private Random random = new Random();
 
-    public DbInit(BookService bookService, AuthorService authorService) {
+    public DbInit(BookService bookService, UserService userService) {
         this.bookService = bookService;
-        this.authorService = authorService;
+        this.userService = userService;
     }
 
     @PostConstruct
@@ -31,6 +33,20 @@ public class DbInit {
 
             bookService.saveBook(book);
         }
+//        final User user = new User();
+//        user.setEmail("user@gmail.com");
+//        user.setUsername("cat");
+//        user.setPassword("cat");
+//
+//        userService.addUser(user, false);
+//
+//        final User admin = new User();
+//        admin.setEmail("admin@gmail.com");
+//        admin.setUsername("admin");
+//        admin.setPassword("admin");
+//
+//        userService.addUser(admin, true);
+
     }
 
 }
