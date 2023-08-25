@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Author-edit page</title>
-    <link href="/styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <script defer src="/js/author-edit.js"></script>
 
 </head>

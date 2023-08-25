@@ -1,8 +1,6 @@
 package org.project.OnlineBookStore.config;
 
 import org.project.OnlineBookStore.entity.Book;
-import org.project.OnlineBookStore.entity.User;
-import org.project.OnlineBookStore.service.AuthorService;
 import org.project.OnlineBookStore.service.BookService;
 import org.project.OnlineBookStore.service.UserService;
 import org.springframework.stereotype.Component;

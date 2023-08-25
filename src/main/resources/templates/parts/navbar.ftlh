@@ -10,14 +10,16 @@
                 Hello ${user.getEmail()}!
                 <#else>
                 Hello unknown!
-            </#if>
+            </
+            #if>
             <a class="text-white" href="/logout">Logout</a>
         </div>
-            <#else>
-            <a class="text-white" href="/login">Login</a><br>
-            <a class="text-white" href="/registration">Register</a>
-            </#if>
-        </div>
+        <#else>
+        <a class="text-white" href="/login">Login</a><br>
+        <a class="text-white" href="/registration">Register</a>
+    </
+    #if>
+    </div>
     </div>
 </nav>
 

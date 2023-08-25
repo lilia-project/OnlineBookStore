@@ -1,4 +1,3 @@
-
 <#import "/parts/common.ftlh" as c>
 
 <@c.page>
@@ -19,7 +18,7 @@
             <input id="stock" required type="number" value="${book.stock}">
         </div>
     </div>
-    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+    <input name="_csrf" type="hidden" value="${_csrf.token}"/>
     <input class="button" type="submit" value="Update">
 </form>
 </@c.page>

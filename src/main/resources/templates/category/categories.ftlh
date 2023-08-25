@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Categories page</title>
-    <link href="../styles.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
     <script defer src="js/category-edit.js"></script>
     <script defer src="/js/category-delete.js"></script>
 </head>
