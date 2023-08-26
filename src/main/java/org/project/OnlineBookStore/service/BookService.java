@@ -19,23 +19,33 @@ public class BookService {
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     public void saveBook(final Book book) {
         bookRepository.save(book);
     }
 
     public List<Book> findAll(BookFiltersDto bookFiltersDto) {
-       return bookRepository.findAll().stream()
+        return bookRepository.findAll().stream()
                 .filter(book -> {
                     Long bookAuthorId = bookFiltersDto.getBookAuthorId();
-                    if(bookAuthorId!=null) {
+                    if (bookAuthorId != null) {
                         return book.getAuthors().stream()
-                                .anyMatch(author->author.getId().equals(bookAuthorId));
+                                .anyMatch(author -> author.getId().equals(bookAuthorId));
                     }
                     return true;
-                }).toList();
+                })
+                .filter(book -> {
+                    String bookTitle = bookFiltersDto.getBookTitle();
+                    if (bookTitle != null && !bookTitle.equals("")) {
+                        bookTitle = bookTitle.toLowerCase();
+                        return book.getName().toLowerCase().contains(bookTitle);
+                    }
+                    return true;
+                })
+                .toList();
 
-       
+
     }
 
     public Optional<Book> getBookById(final Long id) {
@@ -53,6 +63,7 @@ public class BookService {
         return bookRepository.save(toUpdate);
 //        log.info("Updated book: {}", updated);
     }
+
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteBook(final Long id) {
         bookRepository.deleteById(id);
