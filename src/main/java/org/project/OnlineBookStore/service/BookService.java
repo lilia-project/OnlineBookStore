@@ -43,6 +43,13 @@ public class BookService {
                     }
                     return true;
                 })
+                .filter(book -> {
+                    Long categoryId = bookFiltersDto.getBookCategoryId();
+                    if (categoryId != null) {
+                        return book.getCategory().getId().equals(categoryId);
+                    }
+                    return true;
+                })
                 .toList();
 
 
