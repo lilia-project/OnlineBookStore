@@ -47,7 +47,6 @@ public class BookController {
         bookFiltersDto.setBookSort(bookSort);
 
         final List<Book> books = bookService.findAll(bookFiltersDto);
-
         List<Category> categories = categoryService.findAll();
         List<Author> authors = authorService.findAll();
         model.addAttribute("books", books);

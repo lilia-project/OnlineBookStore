@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -26,6 +27,18 @@ public class BookService {
     }
 
     public List<Book> findAll(BookFiltersDto bookFiltersDto) {
+        Comparator<Book> priceComparator = Comparator.comparing(Book::getPrice);
+        Comparator<Book> fakeComparator = (book1, book2) -> 0;
+        String bookSort = bookFiltersDto.getBookSort();
+
+
+        Comparator<Book> currentComparator = switch ( bookSort == null? "":bookSort) {
+            case "price" -> priceComparator;
+//            case "" -> fakeComparator;
+            default -> fakeComparator;
+        };
+
+
         return bookRepository.findAll().stream()
                 .filter(book -> {
                     Long bookAuthorId = bookFiltersDto.getBookAuthorId();
@@ -50,6 +63,7 @@ public class BookService {
                     }
                     return true;
                 })
+                .sorted(currentComparator)
                 .toList();
 
 

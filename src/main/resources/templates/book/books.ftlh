@@ -31,9 +31,10 @@
         <div class="mb-3>
             <label class="form-label">Sort:</label>
             <select class="form-select" id="bookSort">
-                <option value="rating(default)" selected="selected"></option>
-                <option value="price"></option>
-                <option value="available"></option>
+                <option value="" selected="selected"></option>
+                <option value="rating">rating</option>
+                <option value="price">price</option>
+                <option value="available">available</option>
             </select>
         </div>
 
