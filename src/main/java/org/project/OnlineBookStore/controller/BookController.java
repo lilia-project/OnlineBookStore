@@ -35,8 +35,23 @@ public class BookController {
         return "redirect:/books";
     }
 
+    /**
+     * Returns a page of books that satisfy all criteria passed as request params.
+     *
+     * @param model  will be auto-injected by Spring
+     * @param page  the page number, default - 1
+     * @param pageSize  the number of items on the page, default 5
+     * @param authorId  the author id
+     * @param categoryId the category id
+     * @param bookTitle the book name
+     * @param bookSort  the sort option, one of rating, available, price
+     * @return  the page of books
+     */
     @GetMapping //получить все
-    public String getAllBooks(Model model, @RequestParam(required = false)Long authorId,
+    public String getAllBooks(Model model,
+                              @RequestParam(required = false, defaultValue = "1") Long page,
+                              @RequestParam(required = false, defaultValue = "5") Long pageSize,
+                              @RequestParam(required = false)Long authorId,
                               @RequestParam(required = false) Long categoryId,
                               @RequestParam(required = false) String bookTitle,
                               @RequestParam(required = false) String bookSort) {
@@ -45,6 +60,8 @@ public class BookController {
         bookFiltersDto.setBookCategoryId(categoryId);
         bookFiltersDto.setBookTitle(bookTitle);
         bookFiltersDto.setBookSort(bookSort);
+        bookFiltersDto.setPageSize(pageSize);
+        bookFiltersDto.setPage(page);
 
         final List<Book> books = bookService.findAll(bookFiltersDto);
         List<Category> categories = categoryService.findAll();
@@ -52,6 +69,8 @@ public class BookController {
         model.addAttribute("books", books);
         model.addAttribute("categories", categories);
         model.addAttribute("authors", authors);
+        model.addAttribute("page", page);
+        model.addAttribute("pageSize", pageSize);
         return "book/books";
     }
 

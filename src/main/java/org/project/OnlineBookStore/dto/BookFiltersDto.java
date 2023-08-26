@@ -8,4 +8,6 @@ public class BookFiltersDto {
     private Long bookCategoryId;
     private String bookTitle;
     private String bookSort;
+    private Long page;
+    private Long pageSize;
 }

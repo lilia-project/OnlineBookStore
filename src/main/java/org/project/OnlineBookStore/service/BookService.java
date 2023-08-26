@@ -34,7 +34,6 @@ public class BookService {
 
         Comparator<Book> currentComparator = switch ( bookSort == null? "":bookSort) {
             case "price" -> priceComparator;
-//            case "" -> fakeComparator;
             default -> fakeComparator;
         };
 
@@ -64,6 +63,8 @@ public class BookService {
                     return true;
                 })
                 .sorted(currentComparator)
+                .skip(bookFiltersDto.getPageSize()* (bookFiltersDto.getPage()-1))
+                .limit(bookFiltersDto.getPageSize())
                 .toList();
 
 
