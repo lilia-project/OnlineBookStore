@@ -24,8 +24,18 @@ public class BookService {
         bookRepository.save(book);
     }
 
-    public List<Book> findAll() {
-        return bookRepository.findAll();
+    public List<Book> findAll(BookFiltersDto bookFiltersDto) {
+       return bookRepository.findAll().stream()
+                .filter(book -> {
+                    Long bookAuthorId = bookFiltersDto.getBookAuthorId();
+                    if(bookAuthorId!=null) {
+                        return book.getAuthors().stream()
+                                .anyMatch(author->author.getId().equals(bookAuthorId));
+                    }
+                    return true;
+                }).toList();
+
+       
     }
 
     public Optional<Book> getBookById(final Long id) {

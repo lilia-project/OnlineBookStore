@@ -10,14 +10,6 @@ insert into public.author(id, name, surname)
             (9, 'Jane', 'Austen'),
             (10, 'Andrey', 'Platonov');
 
-/*INSERT INTO public.book(id, name, price, stock, category_id, rating_id)
-	VALUES (1, 'Lolita', 100, 6, 1, 0),
-	        (2, 'The Old Man and the Sea ', 100, 6, 1, 0),
-	        (3, '1984', 10, 3, 3, 0),
-	        (4, 'Gone with the Wind', 170, 63, 6, 0),
-	        (5, 'Pride and Prejudice', 760, 2, 4, 0),
-	        (6, 'The Divine Comedy', 76, 5, 4, 0);*/
-
 insert into public.category(id, name)
 	VALUES (1, 'Detectives and thrillers'),
             (2, 'Romance'),
@@ -33,6 +25,32 @@ insert into public.category(id, name)
             (12, 'Comics'),
             (13, 'Religion and Spirituality');
 
+INSERT INTO public.rating (id, grades_sum, comment_counter)
+    VALUES (1, 54, 8),
+            (2, 65, 7),
+            (3, 17, 2),
+            (4, 85, 12),
+            (5, 45, 7),
+            (6, 3, 1);
+
+INSERT INTO public.book(id, name, price, stock, category_id, rating_id)
+    VALUES (1, 'Lolita', 100, 6, 1, 5),
+            (2, 'The Old Man and the Sea ', 100, 6, 1, 2),
+            (3, '1984', 10, 3, 3, 3),
+            (4, 'Gone with the Wind', 170, 63, 6, 4),
+            (5, 'Pride and Prejudice', 760, 2, 4, 1),
+            (6, 'The Divine Comedy', 76, 5, 4, 6);
+
+INSERT INTO public.author_book (book_id, author_id)
+    VALUES (1, 2),
+            (1, 3),
+            (2, 4),
+            (3, 5),
+            (4, 6),
+            (5, 1),
+            (6, 4),
+            (4, 1);
+
 insert into public.consumer(id, email, password, username)
 	VALUES (1, 'u@gmail.com', '$2a$08$Lw3Q5M7a/zcB23hxLHoGbuEOKbC/..czeObjaBc3l71XR54XAUdT.', 'u'),
 	        (2, 'admin@gmail.com', '$2a$08$Lw3Q5M7a/zcB23hxLHoGbuEOKbC/..czeObjaBc3l71XR54XAUdT.', 'a');
@@ -46,3 +64,4 @@ select setval((select pg_get_serial_sequence('public.category', 'id')), (select 
 select setval((select pg_get_serial_sequence('public.book', 'id')), (select max(id) from public.book));
 select setval((select pg_get_serial_sequence('public.basket', 'id')), (select max(id) from public.basket));
 select setval((select pg_get_serial_sequence('public.consumer', 'id')), (select max(id) from public.consumer));
+select setval((select pg_get_serial_sequence('public.rating', 'id')), (select max(id) from public.rating));

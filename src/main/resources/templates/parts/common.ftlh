@@ -11,7 +11,6 @@
 
     <script defer src="/js/book-edit.js"></script>
     <script defer src="/js/book-filter.js"></script>
-    <script defer src="/js/book-filter-by-author.js"></script>
     <script defer src="/js/book-delete.js"></script>
     <script defer src="/js/book-create.js"></script>
     <script defer src="/js/basket.js"></script>

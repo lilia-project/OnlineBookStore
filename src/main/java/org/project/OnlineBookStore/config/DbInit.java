@@ -21,7 +21,7 @@ public class DbInit {
 
     @PostConstruct
     private void postConstructBook() {
-        for (int i = 0; i < 10; i++) {
+        /*for (int i = 0; i < 10; i++) {
             final Book book = new Book();
             book.setName("Book_" + (int) (Math.random() * 401));
 //            Set<Author> authorsSet = new HashSet<>(authorService.getAuthors());
@@ -30,7 +30,7 @@ public class DbInit {
             book.setStock((long) (Math.random() * 101));
 
             bookRepository.save(book);
-        }
+        }*/
         final User user = new User();
         user.setEmail("u@gmail.com");
         user.setUsername("u");

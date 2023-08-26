@@ -36,8 +36,18 @@ public class BookController {
     }
 
     @GetMapping //получить все
-    public String getAllBooks(Model model) {
-        final List<Book> books = bookService.findAll();
+    public String getAllBooks(Model model, @RequestParam(required = false)Long authorId,
+                              @RequestParam(required = false) Long categoryId,
+                              @RequestParam(required = false) String bookTitle,
+                              @RequestParam(required = false) String bookSort) {
+        BookFiltersDto bookFiltersDto = new BookFiltersDto();
+        bookFiltersDto.setBookAuthorId(authorId);
+        bookFiltersDto.setBookCategoryId(categoryId);
+        bookFiltersDto.setBookTitle(bookTitle);
+        bookFiltersDto.setBookSort(bookSort);
+
+        final List<Book> books = bookService.findAll(bookFiltersDto);
+
         List<Category> categories = categoryService.findAll();
         List<Author> authors = authorService.findAll();
         model.addAttribute("books", books);
