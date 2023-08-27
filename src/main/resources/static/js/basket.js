@@ -14,12 +14,11 @@ function addBookToBasket(event, bookId, csrf) {
 
   })
   .then(response => {
+    document.getElementById("book-wish-listed-alert").classList.remove('d-none');
       if (response.redirected) {
          window.location.href = response.url;  // or, location.replace(res.url);
          return;
       }
-      else
-         return response.text();
   })
   .catch(error => {
       console.error(error);

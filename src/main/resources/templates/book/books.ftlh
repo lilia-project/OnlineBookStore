@@ -52,10 +52,10 @@
             </th>
         </div>
 
-<!--<div class="alert alert-success" id="success-alert">
-    <button type="button" class="close" data-dismiss="alert">x</button>
-    <strong>Success! </strong> Product have added to your wishlist.
-</div>-->
+    <div class="alert alert-primary alert-dismissible fade show d-none" id="book-wish-listed-alert" role="alert">
+        The book have been added to <a href="/basket" class="alert-link">Basket</a>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
         <table id = "booksTable" class="table border table-light table-striped mt-7">
             <thead>
                 <tr>
