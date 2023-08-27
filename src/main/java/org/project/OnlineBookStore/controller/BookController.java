@@ -30,7 +30,7 @@ public class BookController {
     }
 
     @PostMapping//создать новый экземпляр в БД
-    public String createNewBook(@RequestBody Book book) {
+    public String createNewBook(@RequestBody @Valid Book book) {
         bookService.saveBook(book);
         return "redirect:/books";
     }

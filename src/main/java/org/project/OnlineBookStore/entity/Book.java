@@ -3,8 +3,11 @@ package org.project.OnlineBookStore.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,8 +19,12 @@ public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @NotBlank
+    @Length(min = 2, max = 50)
     private String name;
+    @PositiveOrZero
     private Long stock;
+    @PositiveOrZero
     private Long price;
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
