@@ -1,37 +1,45 @@
- <style>
+<style>
 
-        body {
-            background-color: #f2f2f2;
-            grid-template-rows: 1fr auto;
-            display: flex;
-            flex-direction: column;
-            min-height: 100%;
-        }
-        .navbar {
-            background-color: #5cb85c;
-        }
-        .btn-primary {
-            background-color: #5cb85c;
-            border-color: #5cb85c;
-        }
-        /* Додаткові стилі для реєстрації та логіну */
-        .login-register {
-            text-align: right;
-        }
-        .footer {
-            background-color: #f8f9fa;
-            padding: 5px 0;
-            text-align: center;
+body {
+    background-color: #f2f2f2;
+    /*grid-template-rows: 1fr auto;*/
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.wrapper {
+	position: relative;
+	min-height: 100%;
+}
+.content {
+	padding-bottom: 40px;
+}
+.navbar {
+    background-color: #5cb85c;
+}
+.btn-primary {
+    background-color: #5cb85c;
+    border-color: #5cb85c;
+}
+.login-register {
+    text-align: right;
+}
+.footer {
+    background-color: #f8f9fa;
+    padding: 8px 0;
+    margin-top: auto;
+    text-align: center;
+	width: 100%;
+	height: 40px;
+}
 
-        }
-
-        .navbar-brand.custom-font {
-            font-family: 'Brush Script Std', cursive, sans-serif; /* Замініть на власний шрифт */
-            font-size: 30px; /* Збільшений розмір шрифту */
-            font-weight: bold; /* Товщина шрифту */
-        }
-        /* Зміна стилю для "Register" */
-        .login-register .text-white {
-            font-size: 13px; /* Розмір шрифту */
-        }
-    </style>
+.navbar-brand.custom-font {
+    font-family: 'Brush Script Std', cursive, sans-serif; /* Замініть на власний шрифт */
+    font-size: 30px; /* Збільшений розмір шрифту */
+    font-weight: bold; /* Товщина шрифту */
+}
+/* Зміна стилю для "Register" */
+.login-register .text-white {
+    font-size: 13px; /* Розмір шрифту */
+}
+</style>
