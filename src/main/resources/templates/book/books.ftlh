@@ -7,9 +7,9 @@
         <div class="mb-3">
             <label class="form-label">Book category:</label>
             <select class="form-select" id="bookCategory">
-                <option value="" selected="selected"></option>
+                <option value=""></option>
                 <#list categories as category>
-                    <option value="${category.id}">${category.name}</option>
+                    <option value="${category.id}" <#if category.id = (categoryId)!-1>selected="selected"</#if>>${category.name}</option>
                 </#list>
             </select>
         </div>
@@ -17,26 +17,26 @@
         <div class="mb-3">
             <label class="form-label">Book author:</label>
             <select class="form-select" id="bookAuthor">
-                <option value="" selected="selected"></option>
+                <option value=""></option>
                 <#list authors as author>
-                    <option value="${author.id}">${author.name + ' '+ author.surname}</option>
+                    <option value="${author.id}" <#if author.id = (authorId)!-1>selected="selected"</#if>>${author.name + ' '+ author.surname}</option>
                 </#list>
             </select>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Sort:</label>
-            <select class="form-select" id="bookSort">
-                <option value="" selected="selected"></option>
-                <option value="rating">rating</option>
-                <option value="price">price</option>
-                <option value="available">available</option>
+            <select class="form-select" id="bookSortElement">
+                <option value=""></option>
+                <option value="rating" <#if 'rating' = (bookSort)!''>selected="selected"</#if>>rating</option>
+                <option value="price" <#if 'price' = (bookSort)!''>selected="selected"</#if>>price</option>
+                <option value="available" <#if 'available' = (bookSort)!''>selected="selected"</#if>>available</option>
             </select>
         </div>
 
         <div class="mb-3">
-            <label for="bookTitle" class="form-label">Book title:</label>
-            <input class="form-control" type="text" id="bookTitle" placeholder="book title">
+            <label for="bookTitleElement" class="form-label">Book title:</label>
+            <input class="form-control" type="text" id="bookTitleElement" placeholder="book title" value="${bookTitle!''}">
         </div>
 
         <button class="btn btn-success mt-3" onclick="searchBooks()">Search</button>
@@ -56,11 +56,11 @@
         The book have been added to <a href="/basket" class="alert-link">Basket</a>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-        <table id = "booksTable" class="table border table-light table-striped mt-7">
+        <table id = "booksTable" class="table border table-light table-striped mt-7 table-hover">
             <thead>
                 <tr>
                     <#if isAdmin>
-                    <th>id</th>
+                        <th>id</th>
                     </#if>
                     <th>name</th>
                     <th>price</th>
@@ -114,9 +114,9 @@
         <div>
             <nav>
                 <ul class="pagination justify-content-center">
-                    <li class="page-item"><a class="page-link" href="/books?page=1">1</a></li>
-                    <li class="page-item"><a class="page-link" href="/books?page=2">2</a></li>
-                    <li class="page-item"><a class="page-link" href="/books?page=3">3</a></li>
+                    <#list 1..pages as i>
+                        <li class="page-item"><a class="page-link" href="/books?page=${i}">${i}</a></li>
+                    </#list>
                 </ul>
             </nav>
          </div>

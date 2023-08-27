@@ -69,8 +69,6 @@ public class BookService {
                     return true;
                 })
                 .sorted(currentComparator)
-                .skip(bookFiltersDto.getPageSize()* (bookFiltersDto.getPage()-1))
-                .limit(bookFiltersDto.getPageSize())
                 .toList();
 
 

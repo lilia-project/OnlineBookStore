@@ -17,6 +17,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -74,6 +75,7 @@ public class BookController {
                               @RequestParam(required = false) Long categoryId,
                               @RequestParam(required = false) String bookTitle,
                               @RequestParam(required = false) String bookSort) {
+
         BookFiltersDto bookFiltersDto = new BookFiltersDto();
         bookFiltersDto.setBookAuthorId(authorId);
         bookFiltersDto.setBookCategoryId(categoryId);
@@ -83,13 +85,24 @@ public class BookController {
         bookFiltersDto.setPage(page);
 
         final List<Book> books = bookService.findAll(bookFiltersDto);
-        List<Category> categories = categoryService.findAll();
-        List<Author> authors = authorService.findAll();
+        final List<Category> categories = categoryService.findAll();
+        final List<Author> authors = authorService.findAll();
+        final List<Book> booksPage = books.stream()
+                .skip(bookFiltersDto.getPageSize()* (bookFiltersDto.getPage()-1))
+                .limit(bookFiltersDto.getPageSize())
+                .toList();
+        int pagesCount = (int) Math.ceil((double) books.size() / pageSize);
+
         model.addAttribute("books", books);
         model.addAttribute("categories", categories);
         model.addAttribute("authors", authors);
         model.addAttribute("page", page);
         model.addAttribute("pageSize", pageSize);
+        model.addAttribute("pages", pagesCount);
+        model.addAttribute("authorId", authorId);
+        model.addAttribute("categoryId", categoryId);
+        model.addAttribute("bookTitle", bookTitle);
+        model.addAttribute("bookSort", bookSort);
         return "book/books";
     }
 
