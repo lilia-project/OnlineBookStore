@@ -57,7 +57,9 @@
         <table id = "booksTable" class="table border table-light table-striped mt-7">
             <thead>
                 <tr>
-<!--                    <th>book id</th>-->
+                    <#if isAdmin>
+                    <th>id</th>
+                    </#if>
                     <th>name</th>
                     <th>price</th>
                     <th>stock</th>
@@ -71,8 +73,11 @@
             <tbody>
                 <#list books as book>
                     <tr data-book-id=${book.getId()}>
-<!--                        <td><a href="/books/${book.getId()}"><p>${book.getId()}</a></td>-->
+                        <#if isAdmin>
+                        <td><a href="/books/${book.getId()}"><p>${book.getId()}</a></td>
+                        </#if>
                         <td><a href="/books/${book.getId()}"><p>${book.getName()}</a></td>
+
 <!--                        <td>${book.getName()}</td>-->
                         <td>${book.price!'-'}</td>
                         <td>${book.stock!'-'}</td>
