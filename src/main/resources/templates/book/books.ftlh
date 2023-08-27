@@ -4,7 +4,7 @@
 <@c.page>
 <div >
     <div>
-        <div class="mb-3>
+        <div class="mb-3">
             <label class="form-label">Book category:</label>
             <select class="form-select" id="bookCategory">
                 <option value="" selected="selected"></option>
@@ -14,7 +14,7 @@
             </select>
         </div>
 
-        <div class="mb-3>
+        <div class="mb-3">
             <label class="form-label">Book author:</label>
             <select class="form-select" id="bookAuthor">
                 <option value="" selected="selected"></option>
@@ -24,7 +24,7 @@
             </select>
         </div>
 
-        <div class="mb-3>
+        <div class="mb-3">
             <label class="form-label">Sort:</label>
             <select class="form-select" id="bookSort">
                 <option value="" selected="selected"></option>
@@ -45,8 +45,10 @@
         <div>
             <th>
                 <#if isAdmin>
-                    <button class="btn btn-primary btn-sm" onclick="/books/create-book-page">Add </button>
-                </#if>
+<!--                    <button class="btn btn-primary btn-sm" onclick="window.location.href=/book/create-book-page">Add </button>-->
+                    <a class="btn btn-primary btn-sm" href="/books/create-book-page">Add</a>
+            </#if>
+
             </th>
         </div>
 

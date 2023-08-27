@@ -59,9 +59,4 @@ insert into public.user_role(user_id, roles)
 	VALUES (1, 'USER'),
 	         (2, 'ADMIN');
 
-select setval((select pg_get_serial_sequence('public.author', 'id')), (select max(id) from public.author));
-select setval((select pg_get_serial_sequence('public.category', 'id')), (select max(id) from public.category));
-select setval((select pg_get_serial_sequence('public.book', 'id')), (select max(id) from public.book));
-select setval((select pg_get_serial_sequence('public.basket', 'id')), (select max(id) from public.basket));
-select setval((select pg_get_serial_sequence('public.consumer', 'id')), (select max(id) from public.consumer));
-select setval((select pg_get_serial_sequence('public.rating', 'id')), (select max(id) from public.rating));
+select setval('hibernate_sequence', 150);

@@ -21,7 +21,7 @@ public class BookService {
         this.bookRepository = bookRepository;
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void saveBook(final Book book) {
         bookRepository.save(book);
     }
@@ -74,7 +74,7 @@ public class BookService {
         return bookRepository.findById(id);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Book update(Long bookId, Book book) {
         final var toUpdate = bookRepository.findById(bookId).orElseThrow();
 
@@ -86,7 +86,7 @@ public class BookService {
 //        log.info("Updated book: {}", updated);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteBook(final Long id) {
         bookRepository.deleteById(id);
     }
