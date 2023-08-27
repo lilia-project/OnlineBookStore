@@ -93,7 +93,7 @@ public class BookController {
                 .toList();
         int pagesCount = (int) Math.ceil((double) books.size() / pageSize);
 
-        model.addAttribute("books", books);
+        model.addAttribute("books", booksPage);
         model.addAttribute("categories", categories);
         model.addAttribute("authors", authors);
         model.addAttribute("page", page);
