@@ -29,7 +29,6 @@ public class Book {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
-
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "rating_id")
     private Rating rating;

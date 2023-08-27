@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
+import javax.validation.constraints.PositiveOrZero;
 
 @Entity
 @Setter
@@ -15,11 +17,11 @@ public class BasketItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
+    @PositiveOrZero
     private Long bookId;
-    @NotNull
+    @Positive
     private Long unitPrice;
-    @NotNull
+    @Positive
     private Long count;
 
     @ManyToOne(fetch = FetchType.EAGER)
