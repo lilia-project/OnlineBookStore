@@ -9,12 +9,8 @@
         <li class="nav-item">
             <a class="nav-link" href="/">Discounts</a>
         </li>
-        <div class="col-md-8">
-            <ul class="nav nav-tabs justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link" href="/"><i class="bi bi-heart"></i></a>
-                </li>
-            </ul>
-        </div>
+        <li class="nav-item">
+            <a class="nav-link" href="/"><i class="bi bi-heart"></i></a>
+        </li>
     </ul>
 </div>

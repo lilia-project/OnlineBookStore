@@ -1,10 +1,11 @@
  <style>
-        /* Стилізація зеленого кольору */
+
         body {
             background-color: #f2f2f2;
+            grid-template-rows: 1fr auto;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
+            min-height: 100%;
         }
         .navbar {
             background-color: #5cb85c;
@@ -18,16 +19,12 @@
             text-align: right;
         }
         .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
             background-color: #f8f9fa;
-            padding: 10px 0;
+            padding: 5px 0;
             text-align: center;
 
         }
 
-        /* Зміна стилю для назви магазину "Bookstore" */
         .navbar-brand.custom-font {
             font-family: 'Brush Script Std', cursive, sans-serif; /* Замініть на власний шрифт */
             font-size: 30px; /* Збільшений розмір шрифту */
