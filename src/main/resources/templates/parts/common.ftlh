@@ -8,6 +8,7 @@
             <meta content="ie=edge" http-equiv="X-UA-Compatible">
             <title>Online book store</title>
             <link href="/css/styles1.css" rel="stylesheet">
+            <link href="/css/error.css" rel="stylesheet">
 
             <script defer src="/js/book-edit.js"></script>
             <script defer src="/js/book-filter.js"></script>

@@ -1,0 +1,29 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.error-container {
+  text-align: center;
+  margin-top: 10%;
+}
+
+.error-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.error-code {
+  font-size: 120px;
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.error-message {
+  font-size: 24px;
+  color: #343a40;
+  margin-top: 10px;
+}
+
+.return-home-btn {
+  margin-top: 20px;
+}
