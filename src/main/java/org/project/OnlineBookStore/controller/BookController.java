@@ -2,6 +2,7 @@ package org.project.OnlineBookStore.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.project.OnlineBookStore.dto.BookFiltersDto;
+import org.project.OnlineBookStore.dto.CreateBookDto;
 import org.project.OnlineBookStore.entity.Author;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.entity.Category;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 @RequiredArgsConstructor
@@ -25,18 +27,29 @@ public class BookController {
     private final AuthorService authorService;
 
     @GetMapping("/create-book-page")
-    public String createBookForm() {
+    public String createBookForm(Model model) {
+        List<Category> categories = categoryService.findAll();
+        List<Author> authors = authorService.findAll();
+
+        model.addAttribute("categories", categories);
+        model.addAttribute("authors", authors);
         return "book/book-create";
     }
 
     /**
      * Creates new book in the database.
      *
-     * @param book  new book
+     * @param bookDto  new book
      * @return  the page of books
      */
     @PostMapping
-    public String createNewBook(@RequestBody @Valid Book book) {
+    public String createNewBook(@RequestBody @Valid CreateBookDto bookDto) {
+        Book book = new Book();
+        book.setName(bookDto.getName());
+        book.setStock(bookDto.getStock());
+        book.setPrice(bookDto.getPrice());
+        book.setCategory(categoryService.findById(bookDto.getCategory()));
+        book.setAuthors(Set.of(authorService.findById(bookDto.getAuthor())));
         bookService.saveBook(book);
         return "redirect:/books";
     }

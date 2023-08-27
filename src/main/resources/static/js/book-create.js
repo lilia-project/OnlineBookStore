@@ -8,12 +8,16 @@ function createBook(event) {
   const name = document.getElementById("name").value;
   const price = document.getElementById("price").value;
   const stock = document.getElementById("stock").value;
+  const author = document.getElementById("bookAuthor").value;
+  const category = document.getElementById("bookCategory").value;
   const csrf = document.getElementById("_csrf").value;
 
   const requestBody = JSON.stringify({
     name: name,
     price: price,
-    stock: stock
+    stock: stock,
+    author: author,
+    category: category
   });
 
   const url = '/books';

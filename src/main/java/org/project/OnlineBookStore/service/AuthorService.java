@@ -1,6 +1,7 @@
 package org.project.OnlineBookStore.service;
 
 import org.project.OnlineBookStore.entity.Author;
+import org.project.OnlineBookStore.exception.ResourceNotFoundException;
 import org.project.OnlineBookStore.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -44,4 +45,8 @@ public class AuthorService {
         authorRepository.deleteById(id);
     }
 
+    public Author findById(Long id) {
+        return authorRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Author by id " + id + " was not found"));
+    }
 }

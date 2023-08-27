@@ -1,6 +1,7 @@
 package org.project.OnlineBookStore.service;
 
 import org.project.OnlineBookStore.entity.Category;
+import org.project.OnlineBookStore.exception.ResourceNotFoundException;
 import org.project.OnlineBookStore.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -40,5 +41,8 @@ public class CategoryService {
     public void deleteCategory(final Long id) {
         categoryRepository.deleteById(id);
     }
-
+    public Category findById(Long id) {
+        return categoryRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Category with id " + id + " was not found"));
+    }
 }
