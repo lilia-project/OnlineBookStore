@@ -26,6 +26,12 @@ public class BookService {
         bookRepository.save(book);
     }
 
+    /**
+     * Filters books that satisfy all criteria received as bookFiltersDto
+     *
+     * @param bookFiltersDto  contain filter parameters
+     * @return  a page of books that satisfy all criteria
+     */
     public List<Book> findAll(BookFiltersDto bookFiltersDto) {
         Comparator<Book> priceComparator = Comparator.comparing(Book::getPrice);
         Comparator<Book> fakeComparator = (book1, book2) -> 0;
@@ -83,7 +89,6 @@ public class BookService {
         toUpdate.setStock(book.getStock());
 
         return bookRepository.save(toUpdate);
-//        log.info("Updated book: {}", updated);
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")

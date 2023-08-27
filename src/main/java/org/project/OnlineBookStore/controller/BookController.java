@@ -24,12 +24,18 @@ public class BookController {
     private final CategoryService categoryService;
     private final AuthorService authorService;
 
-    @GetMapping("/create-book-page") //вызвать форму для создания нового экземпляра
+    @GetMapping("/create-book-page")
     public String createBookForm() {
         return "book/book-create";
     }
 
-    @PostMapping//создать новый экземпляр в БД
+    /**
+     * Creates new book in the database.
+     *
+     * @param book  new book
+     * @return  the page of books
+     */
+    @PostMapping
     public String createNewBook(@RequestBody @Valid Book book) {
         bookService.saveBook(book);
         return "redirect:/books";
@@ -47,7 +53,7 @@ public class BookController {
      * @param bookSort  the sort option, one of rating, available, price
      * @return  the page of books
      */
-    @GetMapping //получить все
+    @GetMapping
     public String getAllBooks(Model model,
                               @RequestParam(required = false, defaultValue = "1") Long page,
                               @RequestParam(required = false, defaultValue = "5") Long pageSize,
@@ -74,6 +80,13 @@ public class BookController {
         return "book/books";
     }
 
+    /**
+     * Returns a page of book by book id.
+     *
+     * @param model  will be auto-injected by Spring
+     * @param id  the book id
+     * @return  the page of book
+     */
     @GetMapping("/{id}") //получить по id
     public String getBookById(Model model, @PathVariable Long id) {
         final Optional<Book> bookById = bookService.getBookById(id);
@@ -83,7 +96,14 @@ public class BookController {
         return "book/book";
     }
 
-    @GetMapping("/{bookId}/edit-book-page") //вызвать форму для правки экземпляра
+    /**
+     * Returns a page by book id for edit book.
+     *
+     * @param bookId the book id
+     * @param model  will be auto-injected by Spring
+     * @return  the page for edit book
+     */
+    @GetMapping("/{bookId}/edit-book-page")
     public String editBookPage(@PathVariable Long bookId, Model model) {
         Optional<Book> book = bookService.getBookById(bookId);
         model.addAttribute("book", book.get());
@@ -91,13 +111,25 @@ public class BookController {
         return "book/book-edit";
     }
 
-    @PutMapping("/{bookId}") //обновить
+    /**
+     * Updates the book in the database
+     *
+     * @param book  the book with new parameters
+     * @param bookId  the book id
+     * @return  a page with updated book
+     */
+    @PutMapping("/{bookId}")
     @ResponseBody
     public Book update(@RequestBody @Valid Book book, @PathVariable Long bookId) {
         return bookService.update(bookId, book);
     }
 
-    @DeleteMapping("/{id}") //удалить по id
+    /**
+     * Deletes the book by book id
+     *
+     * @param id the book id
+     */
+    @DeleteMapping("/{id}")
     @ResponseBody
     public void delete(@PathVariable Long id) {
         bookService.deleteBook(id);
