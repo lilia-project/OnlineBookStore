@@ -15,4 +15,3 @@ There are two default user roles:
 ADMIN (login: admin, password: admin)
 USER (login: user, password: user)
 
-![img_2.png](img_2.png)
