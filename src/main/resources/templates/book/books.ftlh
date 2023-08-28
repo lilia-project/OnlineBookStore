@@ -41,16 +41,7 @@
 
         <button class="btn btn-success mt-3" onclick="searchBooks()">Search</button>
     </div>
-        <br>
-        <div>
-            <th>
-                <#if isAdmin>
-                    <a class="btn btn-primary btn-sm" href="/books/create-book-page">Add</a>
-            </#if>
-
-            </th>
-        </div>
-
+    <br>
     <div class="alert alert-primary alert-dismissible fade show d-none" id="book-wish-listed-alert" role="alert">
         The book have been added to <a href="/basket" class="alert-link">Basket</a>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
