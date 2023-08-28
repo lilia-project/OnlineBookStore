@@ -51,17 +51,20 @@ INSERT INTO public.author_book (book_id, author_id)
             (6, 4),
             (4, 1);
 
-/*
-insert into public.consumer(id, email, password, username)
-	VALUES (1, 'user@gmail.com', '$2a$08$Lw3Q5M7a/zcB23hxLHoGbuEOKbC/..czeObjaBc3l71XR54XAUdT.', 'user'),
-	        (2, 'admin@gmail.com', '$2a$08$Lw3Q5M7a/zcB23hxLHoGbuEOKbC/..czeObjaBc3l71XR54XAUdT.', 'admin');
-*/
 insert into public.consumer(id, email, password, username)
 	VALUES (1, 'user@gmail.com', '$2a$08$/Q0KaW3q.nwiA0QGSSJgoO.D/egxyoSFjHnvEI3focPBqp7AuecXm', 'user'),
 	        (2, 'admin@gmail.com', '$2a$08$CnrPwKE5CK2RUSlTUesbMu81gx2Gm1q4FWDqPxAYwVmqJDf2WiKf6', 'admin');
 
 insert into public.user_role(user_id, roles)
 	VALUES (1, 'USER'),
-	         (2, 'ADMIN');
+	        (2, 'ADMIN');
+
+insert into public.wishlist(id, user_id)
+    VALUES (1, 1),
+            (2, 2);
+
+insert into public.basket(id, total, user_id)
+ VALUES (1, 0, 1),
+         (2, 0, 2);
 
 select setval('hibernate_sequence', 150);

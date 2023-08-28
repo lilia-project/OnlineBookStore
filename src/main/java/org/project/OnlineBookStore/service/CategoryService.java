@@ -18,7 +18,7 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void saveCategory(final Category category) {
         categoryRepository.save(category);
     }
@@ -30,14 +30,14 @@ public class CategoryService {
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Category update(Long categoryId, Category category) {
         final var toUpdate = categoryRepository.findById(categoryId).orElseThrow();
         toUpdate.setName(category.getName());
 
         return categoryRepository.save(toUpdate);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteCategory(final Long id) {
         categoryRepository.deleteById(id);
     }

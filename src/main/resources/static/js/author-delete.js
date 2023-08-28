@@ -1,12 +1,17 @@
-function deleteAuthor(authorId) {
+function deleteAuthor(authorId, csrf) {
   const url = `/authors/${authorId}`;
 
+  // Perform an AJAX request to delete the course
   fetch(url, {
     method: 'DELETE',
+    headers: {
+         'X-CSRF-TOKEN': csrf,
+    },
   })
     .then(response => {
 
       if (response.status === 200) {
+          // Remove the corresponding row from the table
           const row = document.querySelector(`#authorsTable tr[data-author-id="${authorId}"]`);
           if (row) {
             row.remove();

@@ -16,7 +16,6 @@ import java.util.Set;
 public class Wishlist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "wishlist_id")
     private Long id;
 
     @OneToOne

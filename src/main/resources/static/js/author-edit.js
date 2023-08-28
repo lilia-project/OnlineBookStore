@@ -3,6 +3,7 @@ function editAuthor(event, authorId) {
 
   const name = document.getElementById("name").value;
   const surname = document.getElementById("surname").value;
+  const csrf = document.getElementById("_csrf").value;
 
    const requestBody = JSON.stringify({
       name: name,
@@ -11,10 +12,12 @@ function editAuthor(event, authorId) {
 
   const url = `/authors/${authorId}`;
 
+  // Perform an AJAX request to create a new author
   fetch(url, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
+      'X-CSRF-TOKEN': csrf,
     },
     body: requestBody,
   })

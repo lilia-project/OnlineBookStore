@@ -3,7 +3,7 @@
 <@c.page>
 
 <div>
-    ${username}
+    ${username}<br>
     ${email}
 </div>
 

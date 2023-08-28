@@ -18,7 +18,7 @@ public class AuthorService {
     public AuthorService(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void saveAuthor(final Author author) {
         authorRepository.save(author);
     }
@@ -30,7 +30,7 @@ public class AuthorService {
     public Optional<Author> getAuthorById(final Long id) {
         return authorRepository.findById(id);
     }
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public Author update(Long authorId, Author author) {
         final var toUpdate = authorRepository.findById(authorId).orElseThrow();
 
@@ -40,7 +40,7 @@ public class AuthorService {
         return authorRepository.save(toUpdate);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteAuthor(final Long id) {
         authorRepository.deleteById(id);
     }

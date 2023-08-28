@@ -14,8 +14,18 @@
             <script defer src="/js/book-filter.js"></script>
             <script defer src="/js/book-delete.js"></script>
             <script defer src="/js/book-create.js"></script>
+
+            <script defer src="/js/author-create.js"></script>
+            <script defer src="/js/author-edit.js"></script>
+            <script defer src="/js/author-delete.js"></script>
+
+            <script defer src="/js/category-create.js"></script>
+            <script defer src="/js/category-edit.js"></script>
+            <script defer src="/js/category-delete.js"></script>
+
             <script defer src="/js/basket.js"></script>
-            <script defer src="/js/wish-list-add.js"></script>
+
+            <script defer src="/js/wish-list.js"></script>
 
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
