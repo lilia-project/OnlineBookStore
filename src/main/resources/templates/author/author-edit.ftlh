@@ -12,7 +12,7 @@
             <input class="form-control mb-2" id="surname" required type="text" value="${author.surname}">
         </div>
     </div>
-    <input id="_csrf" name="_csrf" type="hidden" value="${_csrf.token}"/>
+    <input id="_csrf" name="_csrf" type="hidden" value="${_csrf.token}"/><br>
     <input class="btn btn-primary btn-sm" type="submit" value="Update">
 </form>
 </@c.page>

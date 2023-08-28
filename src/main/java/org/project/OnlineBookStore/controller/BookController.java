@@ -69,8 +69,8 @@ public class BookController {
      */
     @GetMapping
     public String getAllBooks(Model model,
-                              @RequestParam(required = false, defaultValue = "1") Long page,
-                              @RequestParam(required = false, defaultValue = "5") Long pageSize,
+                              @RequestParam(required = false, defaultValue = "${page.start}") Long page,
+                              @RequestParam(required = false, defaultValue = "${page.size}") Long pageSize,
                               @RequestParam(required = false)Long authorId,
                               @RequestParam(required = false) Long categoryId,
                               @RequestParam(required = false) String bookTitle,

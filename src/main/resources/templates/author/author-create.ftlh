@@ -12,7 +12,7 @@
                 <input class="form-control mb-2" id="surname" placeholder="surname" required type="text">
             </div>
         </div>
-        <input id="_csrf" name="_csrf" type="hidden" value="${_csrf.token}"/>
-        <button class="btn btn-success float-end" type="submit">Create new Author</button>
+        <input id="_csrf" name="_csrf" type="hidden" value="${_csrf.token}"/><br>
+        <button class="btn btn-primary" type="submit">Add</button>
     </form>
 </@c.page>

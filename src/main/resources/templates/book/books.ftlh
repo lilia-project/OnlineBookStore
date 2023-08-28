@@ -64,26 +64,24 @@
                     <th>name</th>
                     <th>price</th>
                     <#if isAdmin>
-                    <th>stock</th>
+                        <th>stock</th>
                     </#if>
                     <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
-
                 </tr>
             </thead>
             <tbody>
                 <#list books as book>
                     <tr data-book-id=${book.getId()}>
                         <#if isAdmin>
-                        <td><a href="/books/${book.getId()}"><p>${book.getId()}</a></td>
+                            <td><a href="/books/${book.getId()}"><p>${book.getId()}</a></td>
                         </#if>
                         <td><a href="/books/${book.getId()}"><p>${book.getName()}</a></td>
-
                         <td>${book.price!'-'}</td>
                         <#if isAdmin>
-                        <td>${book.stock!'-'}</td>
+                            <td>${book.stock!'-'}</td>
                         </#if>
                         <td>
                             <button class="btn btn-success btn-sm" onclick="addBookToBasket(event,'${book.id}', '${_csrf.token}')">Buy</button>
@@ -116,7 +114,7 @@
             <nav>
                 <ul class="pagination justify-content-center">
                     <#list 1..pages as i>
-                        <li class="page-item"><a class="page-link" href="/books?page=${i}">${i}</a></li>
+                        <li class="page-item"><a class="page-link" href="/books?page=${i}#booksTable">${i}</a></li>
                     </#list>
                 </ul>
             </nav>
