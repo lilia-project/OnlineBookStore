@@ -14,3 +14,5 @@ On startup the database will be initialized from data.sql file.
 There are two default user roles:
 ADMIN (login: admin, password: admin)
 USER (login: user, password: user)
+
+![img_2.png](img_2.png)
