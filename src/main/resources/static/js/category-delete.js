@@ -16,7 +16,10 @@ function deleteCategory(categoryId, csrf) {
           if (row) {
             row.remove();
           }
-      } else {
+      } else if(response.status === 409){
+          alert("This category is referenced by a book. You need to delete this book firstly.");
+      }
+      else {
           alert("You are not authorized to do this");
       }
     })

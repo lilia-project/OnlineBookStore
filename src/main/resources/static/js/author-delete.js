@@ -16,9 +16,13 @@ function deleteAuthor(authorId, csrf) {
           if (row) {
             row.remove();
           }
-      } else {
+      } else if(response.status === 409){
+          alert("This author is referenced by a book. You need to delete this book firstly.");
+      }
+      else {
           alert("You are not authorized to do this");
       }
+
     })
     .catch(error => console.error(error));
 }
