@@ -1,7 +1,7 @@
 <#import "/parts/common.ftlh" as c>
 
 <@c.page>
-<table id = "bookTable"  class="table border table-light table-striped mt-7 table-hover">
+<table id = "booksTable"  class="table border table-light table-striped mt-7 table-hover">
 <thead>
 <tr>
     <th>name</th>
@@ -20,7 +20,7 @@
         <button class="btn btn-success btn-sm" onclick="addBookToBasket(event,'${book.id}', '${_csrf.token}')">Buy</button>
     </td>
     <td>
-        <a class="nav-link" onclick="showWishListAlert('${book.id}','${(_csrf.token)!''}')" data-toggle="tooltip" data-placement="left" title="Add this to your Wish List"><i class="bi bi-heart"></i></a>
+        <a class="nav-link" onclick="saveOrDeleteWishListItem('${book.id}','${(_csrf.token)!''}')" data-toggle="tooltip" data-placement="left" title="Add this to your Wish List"><i class="bi bi-heart"></i></a>
     </td>
 </tr>
 </table>

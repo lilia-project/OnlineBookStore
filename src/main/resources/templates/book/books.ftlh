@@ -108,14 +108,21 @@
                         </td>
                     </tr>
                 </#list>
+                <#if isAdmin>
+                    <tr class="cursor-pointer" onclick="window.location='/books/create-book-page'">
+                        <td colspan="8" class="text-center">➕</td>
+                    </tr>
+                </#if>
             </tbody>
         </table>
         <div>
             <nav>
                 <ul class="pagination justify-content-center">
-                    <#list 1..pages as i>
-                        <li class="page-item"><a class="page-link" href="/books?page=${i}#booksTable">${i}</a></li>
-                    </#list>
+                    <#if (pages > 1)>
+                        <#list 1..pages as i>
+                            <li class="page-item"><a class="page-link" href="/books?page=${i}#booksTable">${i}</a></li>
+                        </#list>
+                    </#if>
                 </ul>
             </nav>
          </div>
