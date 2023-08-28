@@ -4,5 +4,5 @@ The administrator can add, delete and edit book titles, list of authors and cate
 The application requires to work 
 BD PostgreSQL (login: Online_book_store, password: admin).
 There are two default user roles:
-ADMIN (login: a, password: u)
-USER (login: u, password: u)
+ADMIN (login: admin, password: admin)
+USER (login: user, password: user)

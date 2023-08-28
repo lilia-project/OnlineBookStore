@@ -8,6 +8,7 @@
     <th>price</th>
     <th>stock</th>
     <th></th>
+    <th></th>
 </tr>
 </thead>
 <tr data-book-id=${book.getId()}>
@@ -21,7 +22,6 @@
     <td>
         <a class="nav-link" onclick="showWishListAlert('${book.id}','${(_csrf.token)!''}')" data-toggle="tooltip" data-placement="left" title="Add this to your Wish List"><i class="bi bi-heart"></i></a>
     </td>
-
 </tr>
 </table>
 

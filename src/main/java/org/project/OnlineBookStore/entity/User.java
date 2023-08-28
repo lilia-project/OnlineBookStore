@@ -25,7 +25,7 @@ public class User implements UserDetails {
     @Length(min = 1, max = 10)
     private String username;
     @NotBlank
-    @Length(min = 1)
+    @Length(min = 4)
     private String password;
     @Email
     @NotBlank(message = "please fill the email")
