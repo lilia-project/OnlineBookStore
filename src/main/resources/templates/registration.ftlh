@@ -4,6 +4,7 @@
 
 <div class="form-row">
     <div class="form-group col-md-6">
+        <p>${error!''}</p>
         <form action="/registration" class="form-inline" method="post">
             <input class="form-control" name="username" placeholder="username" type="text" required minlength="4">
             <input class="form-control" name="password" placeholder="user password" type="password" required minlength="4">

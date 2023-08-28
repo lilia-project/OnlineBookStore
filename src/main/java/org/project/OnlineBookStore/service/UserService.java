@@ -1,8 +1,10 @@
 package org.project.OnlineBookStore.service;
 
 import lombok.RequiredArgsConstructor;
+import org.project.OnlineBookStore.entity.Basket;
 import org.project.OnlineBookStore.entity.Role;
 import org.project.OnlineBookStore.entity.User;
+import org.project.OnlineBookStore.entity.Wishlist;
 import org.project.OnlineBookStore.repository.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,8 +18,8 @@ import java.util.Collections;
 @RequiredArgsConstructor
 public class UserService implements UserDetailsService {
     private final UserRepository userRepository;
-
-
+    private final BasketService basketService;
+    private final WishlistService wishlistService;
     private final PasswordEncoder passwordEncoder;
 
 
@@ -47,8 +49,24 @@ public class UserService implements UserDetailsService {
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        userRepository.save(user);
+        User saved = userRepository.save(user);
+
+        basketService.saveBasket(createBasketForUser(saved));
+        wishlistService.saveWishlist(createWishListForUser(saved));
 
         return true;
+    }
+
+    private Wishlist createWishListForUser(User user) {
+        Wishlist wishlist = new Wishlist();
+        wishlist.setUser(user);
+        return wishlist;
+    }
+
+    private Basket createBasketForUser(User user) {
+        Basket basket = new Basket();
+        basket.setUser(user);
+        basket.setTotal(0L);
+        return basket;
     }
 }

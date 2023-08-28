@@ -19,6 +19,9 @@ public class Wishlist {
     @Column(name = "wishlist_id")
     private Long id;
 
+    @OneToOne
+    private User user;
+
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "wishlist_book",
             joinColumns = @JoinColumn(name = "wishlist_id"),
