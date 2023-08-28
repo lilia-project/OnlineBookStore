@@ -13,7 +13,6 @@
     </tr>
     </thead>
     <tbody id="cart-items">
-    <!-- Тут будуть додаватися позиції замовлення -->
     <#list books as book>
     <tr data-book-id=${book.getId()}>
         <td><a href="/books/${book.getId()}"><p>${book.getId()}</a></td>

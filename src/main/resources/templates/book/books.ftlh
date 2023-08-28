@@ -45,7 +45,6 @@
         <div>
             <th>
                 <#if isAdmin>
-<!--                    <button class="btn btn-primary btn-sm" onclick="window.location.href=/book/create-book-page">Add </button>-->
                     <a class="btn btn-primary btn-sm" href="/books/create-book-page">Add</a>
             </#if>
 
@@ -64,7 +63,9 @@
                     </#if>
                     <th>name</th>
                     <th>price</th>
+                    <#if isAdmin>
                     <th>stock</th>
+                    </#if>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -80,10 +81,10 @@
                         </#if>
                         <td><a href="/books/${book.getId()}"><p>${book.getName()}</a></td>
 
-<!--                        <td>${book.getName()}</td>-->
                         <td>${book.price!'-'}</td>
+                        <#if isAdmin>
                         <td>${book.stock!'-'}</td>
-
+                        </#if>
                         <td>
                             <button class="btn btn-success btn-sm" onclick="addBookToBasket(event,'${book.id}', '${_csrf.token}')">Buy</button>
                         </td>
