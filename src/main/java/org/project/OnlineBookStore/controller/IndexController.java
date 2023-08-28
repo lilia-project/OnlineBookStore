@@ -13,10 +13,6 @@ import java.util.Objects;
 @RequestMapping(path = {"/", "/index", "/home"})
 public class IndexController {
 
-    //    @GetMapping
-//    public String index() {
-//        return "index";
-//    }
     @GetMapping
     public String index(Model model, @AuthenticationPrincipal User user) {
         if (Objects.nonNull(user)) {

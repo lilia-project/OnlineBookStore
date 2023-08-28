@@ -18,6 +18,7 @@ public class CategoryService {
     public CategoryService(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     public void saveCategory(final Category category) {
         categoryRepository.save(category);
@@ -30,6 +31,7 @@ public class CategoryService {
     public List<Category> findAll() {
         return categoryRepository.findAll();
     }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     public Category update(Long categoryId, Category category) {
         final var toUpdate = categoryRepository.findById(categoryId).orElseThrow();
@@ -37,10 +39,12 @@ public class CategoryService {
 
         return categoryRepository.save(toUpdate);
     }
+
     @PreAuthorize("hasAuthority('ADMIN')")
     public void deleteCategory(final Long id) {
         categoryRepository.deleteById(id);
     }
+
     public Category findById(Long id) {
         return categoryRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Category with id " + id + " was not found"));

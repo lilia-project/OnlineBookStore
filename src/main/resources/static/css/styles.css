@@ -1,7 +1,6 @@
 
 body {
     background-color: #f2f2f2;
-    /*grid-template-rows: 1fr auto;*/
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -33,13 +32,12 @@ body {
 }
 
 .navbar-brand.custom-font {
-    font-family: 'Brush Script Std', cursive, sans-serif; /* Замініть на власний шрифт */
-    font-size: 30px; /* Збільшений розмір шрифту */
-    font-weight: bold; /* Товщина шрифту */
+    font-family: 'Brush Script Std', cursive, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
 }
-/* Зміна стилю для "Register" */
 .login-register .text-white {
-    font-size: 13px; /* Розмір шрифту */
+    font-size: 13px;
 }
 .cursor-pointer {
     cursor: pointer;

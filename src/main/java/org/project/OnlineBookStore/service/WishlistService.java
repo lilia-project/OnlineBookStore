@@ -6,10 +6,8 @@ import org.project.OnlineBookStore.entity.User;
 import org.project.OnlineBookStore.entity.Wishlist;
 import org.project.OnlineBookStore.exception.ResourceNotFoundException;
 import org.project.OnlineBookStore.repository.WishlistRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -22,18 +20,6 @@ public class WishlistService {
 
     public void saveWishlist(final Wishlist wishlist) {
         wishlistRepository.save(wishlist);
-    }
-
-    public List<Wishlist> getWishlists() {
-        return wishlistRepository.findAll();
-    }
-
-    public Optional<Wishlist> getWishlistById(final Long id) {
-        return wishlistRepository.findById(id);
-    }
-
-    public void deleteWishlist(final Wishlist wishlist) {
-        wishlistRepository.delete(wishlist);
     }
 
     public Optional<Wishlist> findByUserId(Long userId) {

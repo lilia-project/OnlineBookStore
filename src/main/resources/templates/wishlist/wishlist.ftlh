@@ -12,7 +12,6 @@
                 </tr>
             </thead>
             <tbody id="wishlist-items">
-            <!-- Тут будуть додаватися позиції замовлення -->
                 <#list books as book>
                     <tr data-book-id=${book.getId()}>
                         <td><a href="/books/${book.id}">${book.name}</a></td>

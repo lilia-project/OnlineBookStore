@@ -5,7 +5,6 @@ import org.project.OnlineBookStore.entity.Basket;
 import org.project.OnlineBookStore.entity.BasketItem;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.entity.User;
-import org.project.OnlineBookStore.service.BasketItemService;
 import org.project.OnlineBookStore.service.BasketService;
 import org.project.OnlineBookStore.service.BookService;
 import org.springframework.http.HttpStatus;
@@ -23,7 +22,6 @@ import java.util.stream.Collectors;
 @RequestMapping(path = "/basket")
 public class BasketController {
     private final BasketService basketService;
-    private final BasketItemService basketItemService;
     private final BookService bookService;
 
     @GetMapping
@@ -40,7 +38,7 @@ public class BasketController {
     @PostMapping(path = "/item")
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
-    public void createBasketItem(@RequestParam(required = false, defaultValue = "false")boolean removeFromWishList,
+    public void createBasketItem(@RequestParam(required = false, defaultValue = "false") boolean removeFromWishList,
                                  @RequestParam Long bookId,
                                  @AuthenticationPrincipal User user) {
         if (!removeFromWishList) {

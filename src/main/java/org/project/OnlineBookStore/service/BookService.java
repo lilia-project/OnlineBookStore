@@ -29,15 +29,15 @@ public class BookService {
     /**
      * Filters books that satisfy all criteria received as bookFiltersDto
      *
-     * @param bookFiltersDto  contain filter parameters as fields
-     * @return  a page of books that satisfy all criteria
+     * @param bookFiltersDto contain filter parameters as fields
+     * @return a page of books that satisfy all criteria
      */
     public List<Book> findAll(BookFiltersDto bookFiltersDto) {
         Comparator<Book> priceComparator = Comparator.comparing(Book::getPrice);
         Comparator<Book> fakeComparator = (book1, book2) -> 0;
         String bookSort = bookFiltersDto.getBookSort();
 
-        Comparator<Book> currentComparator = switch ( bookSort == null? "":bookSort) {
+        Comparator<Book> currentComparator = switch (bookSort == null ? "" : bookSort) {
             case "price" -> priceComparator;
             default -> fakeComparator;
         };

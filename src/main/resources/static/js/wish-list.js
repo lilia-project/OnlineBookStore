@@ -22,7 +22,6 @@ function saveItem(url, csrf, iconElement) {
     })
     .then(response => {
         if (response.status === 201) {
-            // fill the icon of heart
             iconElement.classList.remove('bi-heart');
             iconElement.classList.add('bi-heart-fill');
         } else {
@@ -42,7 +41,6 @@ function deleteItem(url, csrf, iconElement) {
     })
     .then(response => {
         if (response.status === 200) {
-            // fill the icon of heart
             iconElement.classList.remove('bi-heart-fill');
             iconElement.classList.add('bi-heart');
         } else {
@@ -57,10 +55,9 @@ function deleteFromBasket(event, bookId, csrf) {
 
   const url = `/wishlist/item?bookId=${bookId}`;
 
-  // Perform an AJAX request to create a new student
   fetch(url, {
     method: 'DELETE',
-    redirect: 'follow', // default setting
+    redirect: 'follow',
     headers: {
       'Content-Type': 'application/json',
       'X-CSRF-TOKEN': csrf,
@@ -69,7 +66,6 @@ function deleteFromBasket(event, bookId, csrf) {
   })
   .then(response => {
     if (response.status === 200) {
-        // Remove the corresponding row from the table
         const row = document.querySelector(`#wishlist-table tr[data-book-id="${bookId}"]`);
         if (row) {
           row.remove();
@@ -97,7 +93,6 @@ function addBookToBasketFromWishList(event, bookId, csrf) {
     })
     .then(response => {
         if (response.status === 201) {
-            // Remove the corresponding row from the table
             const row = document.querySelector(`#wishlist-table tr[data-book-id="${bookId}"]`);
             if (row) {
               row.remove();

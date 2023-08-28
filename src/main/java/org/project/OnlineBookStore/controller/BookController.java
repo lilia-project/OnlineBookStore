@@ -17,7 +17,6 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Controller
 @RequiredArgsConstructor
@@ -40,8 +39,8 @@ public class BookController {
     /**
      * Creates new book in the database.
      *
-     * @param bookDto  new book
-     * @return  the page of books
+     * @param bookDto new book
+     * @return the page of books
      */
     @PostMapping
     public String createNewBook(@RequestBody @Valid CreateBookDto bookDto) {
@@ -58,20 +57,20 @@ public class BookController {
     /**
      * Returns a page of books that satisfy all criteria passed as request params.
      *
-     * @param model  will be auto-injected by Spring
-     * @param page  the page number, default - 1
-     * @param pageSize  the number of items on the page, default 5
-     * @param authorId  the author id
+     * @param model      will be auto-injected by Spring
+     * @param page       the page number, default - 1
+     * @param pageSize   the number of items on the page, default 5
+     * @param authorId   the author id
      * @param categoryId the category id
-     * @param bookTitle the book name
-     * @param bookSort  the sort option, one of rating, available, price
-     * @return  the page of books
+     * @param bookTitle  the book name
+     * @param bookSort   the sort option, one of rating, available, price
+     * @return the page of books
      */
     @GetMapping
     public String getAllBooks(Model model,
                               @RequestParam(required = false, defaultValue = "${page.start}") Long page,
                               @RequestParam(required = false, defaultValue = "${page.size}") Long pageSize,
-                              @RequestParam(required = false)Long authorId,
+                              @RequestParam(required = false) Long authorId,
                               @RequestParam(required = false) Long categoryId,
                               @RequestParam(required = false) String bookTitle,
                               @RequestParam(required = false) String bookSort) {
@@ -88,7 +87,7 @@ public class BookController {
         final List<Category> categories = categoryService.findAll();
         final List<Author> authors = authorService.findAll();
         final List<Book> booksPage = books.stream()
-                .skip(bookFiltersDto.getPageSize()* (bookFiltersDto.getPage()-1))
+                .skip(bookFiltersDto.getPageSize() * (bookFiltersDto.getPage() - 1))
                 .limit(bookFiltersDto.getPageSize())
                 .toList();
         int pagesCount = (int) Math.ceil((double) books.size() / pageSize);
@@ -109,9 +108,9 @@ public class BookController {
     /**
      * Returns a page of book by book id.
      *
-     * @param model  will be auto-injected by Spring
-     * @param id  the book id
-     * @return  the page of book
+     * @param model will be auto-injected by Spring
+     * @param id    the book id
+     * @return the page of book
      */
     @GetMapping("/{id}") //получить по id
     public String getBookById(Model model, @PathVariable Long id) {
@@ -127,7 +126,7 @@ public class BookController {
      *
      * @param bookId the book id
      * @param model  will be auto-injected by Spring
-     * @return  the page for edit book
+     * @return the page for edit book
      */
     @GetMapping("/{bookId}/edit-book-page")
     public String editBookPage(@PathVariable Long bookId, Model model) {
@@ -140,9 +139,9 @@ public class BookController {
     /**
      * Updates the book in the database
      *
-     * @param book  the book with new parameters
-     * @param bookId  the book id
-     * @return  a page with updated book
+     * @param book   the book with new parameters
+     * @param bookId the book id
+     * @return a page with updated book
      */
     @PutMapping("/{bookId}")
     @ResponseBody
