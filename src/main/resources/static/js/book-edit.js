@@ -14,7 +14,6 @@ function editBook(event, bookId) {
 
   const url = `/books/${bookId}`;
 
-  // Perform an AJAX request to create a new student
   fetch(url, {
     method: 'PUT',
     headers: {

@@ -10,7 +10,6 @@ function showWishListAlert(bookId, csrf) {
     })
     .then(response => {
         if (response.status === 200) {
-            // fill the icon of heart
             const element = document.querySelector(`#booksTable tr[data-book-id="${bookId}"] td i`);
             element.classList.remove('bi-heart');
             element.classList.add('bi-heart-fill');

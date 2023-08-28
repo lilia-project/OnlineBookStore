@@ -9,7 +9,6 @@ function editCategory(event, categoryId) {
 
   const url = `/categories/${categoryId}`;
 
-  // Perform an AJAX request to create a new category
   fetch(url, {
     method: 'PUT',
     headers: {

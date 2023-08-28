@@ -6,7 +6,6 @@ function searchBooks() {
 
   const url = `/books?authorId=${bookAuthorId}&categoryId=${bookCategoryId}&bookTitle=${bookTitle}&bookSort=${bookSort}`;
 
-  // Perform an AJAX request to delete the course
   fetch(url, {
     method: 'GET',
   })

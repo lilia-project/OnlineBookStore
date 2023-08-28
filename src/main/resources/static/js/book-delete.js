@@ -1,7 +1,6 @@
 function deleteBook(bookId, csrf) {
   const url = `/books/${bookId}`;
 
-  // Perform an AJAX request to delete the course
   fetch(url, {
     method: 'DELETE',
      headers: {
@@ -11,7 +10,6 @@ function deleteBook(bookId, csrf) {
     .then(response => {
 
       if (response.status === 200) {
-          // Remove the corresponding row from the table
           const row = document.querySelector(`#booksTable tr[data-book-id="${bookId}"]`);
           if (row) {
             row.remove();

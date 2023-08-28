@@ -29,7 +29,7 @@ public class BookService {
     /**
      * Filters books that satisfy all criteria received as bookFiltersDto
      *
-     * @param bookFiltersDto  contain filter parameters
+     * @param bookFiltersDto  contain filter parameters as fields
      * @return  a page of books that satisfy all criteria
      */
     public List<Book> findAll(BookFiltersDto bookFiltersDto) {
@@ -37,12 +37,10 @@ public class BookService {
         Comparator<Book> fakeComparator = (book1, book2) -> 0;
         String bookSort = bookFiltersDto.getBookSort();
 
-
         Comparator<Book> currentComparator = switch ( bookSort == null? "":bookSort) {
             case "price" -> priceComparator;
             default -> fakeComparator;
         };
-
 
         return bookRepository.findAll().stream()
                 .filter(book -> {
