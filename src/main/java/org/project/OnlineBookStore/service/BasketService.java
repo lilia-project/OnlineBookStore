@@ -19,6 +19,7 @@ public class BasketService {
     private final BasketRepository basketRepository;
     private final BasketItemRepository basketItemRepository;
     private final BookService bookService;
+    private final WishlistService wishlistService;
 
     public void saveBasket(final Basket basket) {
         basketRepository.save(basket);
@@ -63,5 +64,10 @@ public class BasketService {
             basket.setTotal(0L);
            return basketRepository.save(basket);
         });
+    }
+
+    public void moveFromWishListToBasket(Long bookId, User user) {
+        wishlistService.deleteWishlistItem(bookId, user);
+        createBasketItem(bookId, user);
     }
 }

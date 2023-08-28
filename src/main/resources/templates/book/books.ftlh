@@ -90,7 +90,7 @@
                         </td>
 
                         <td>
-                            <a class="nav-link" onclick="showWishListAlert('${book.id}','${(_csrf.token)!''}')" data-toggle="tooltip" data-placement="left" title="Add this to your Wish List"><i class="bi bi-heart"></i></a>
+                            <a class="nav-link" onclick="saveOrDeleteWishListItem('${book.id}','${(_csrf.token)!''}')" data-toggle="tooltip" data-placement="left" title="Add this to your Wish List"><i class="bi bi-heart"></i></a>
                         </td>
 
                         <td>

@@ -8,6 +8,7 @@ import org.project.OnlineBookStore.entity.User;
 import org.project.OnlineBookStore.service.BasketItemService;
 import org.project.OnlineBookStore.service.BasketService;
 import org.project.OnlineBookStore.service.BookService;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,8 +39,15 @@ public class BasketController {
 
     @PostMapping(path = "/item")
     @ResponseBody
-    public void createBasketItem(@RequestParam Long bookId, @AuthenticationPrincipal User user) {
-        basketService.createBasketItem(bookId, user);
+    @ResponseStatus(HttpStatus.CREATED)
+    public void createBasketItem(@RequestParam(required = false, defaultValue = "false")boolean removeFromWishList,
+                                 @RequestParam Long bookId,
+                                 @AuthenticationPrincipal User user) {
+        if (!removeFromWishList) {
+            basketService.createBasketItem(bookId, user);
+        } else {
+            basketService.moveFromWishListToBasket(bookId, user);
+        }
     }
 
 }

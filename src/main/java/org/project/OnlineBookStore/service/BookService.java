@@ -68,8 +68,6 @@ public class BookService {
                 })
                 .sorted(currentComparator)
                 .toList();
-
-
     }
 
     public Optional<Book> getBookById(final Long id) {
@@ -99,6 +97,5 @@ public class BookService {
     public List<Book> getAllByIds(Set<Long> bookIds) {
         return bookRepository.findAllById(bookIds);
     }
-
 
 }
