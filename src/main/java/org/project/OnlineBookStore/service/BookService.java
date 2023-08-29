@@ -1,5 +1,6 @@
 package org.project.OnlineBookStore.service;
 
+import lombok.RequiredArgsConstructor;
 import org.project.OnlineBookStore.dto.BookFiltersDto;
 import org.project.OnlineBookStore.entity.Book;
 import org.project.OnlineBookStore.repository.BookRepository;
@@ -13,13 +14,9 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
+@RequiredArgsConstructor
 public class BookService {
     private final BookRepository bookRepository;
-
-    @Autowired
-    public BookService(BookRepository bookRepository) {
-        this.bookRepository = bookRepository;
-    }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     public void saveBook(final Book book) {

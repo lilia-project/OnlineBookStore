@@ -27,6 +27,12 @@ public class BasketService {
         return basketRepository.findByUserId(userId);
     }
 
+    /**
+     * Creates and saves the item to the basket
+     *
+     * @param bookId  the book id
+     * @param user  the user
+     */
     public void createBasketItem(Long bookId, User user) {
         Long defaultCountItem = 1L;
         Book book = bookService.getBookById(bookId).orElseThrow();
@@ -47,15 +53,28 @@ public class BasketService {
         basketRepository.save(currentBasket);
     }
 
+    /**
+     * Creates the basket for current user
+     *
+     * @param user  the user
+     * @return  the default basket
+     */
     public Basket getCurrentBasket(User user) {
+        Long defaultTotal = 0L;
         return getBasketByUserId(user.getId()).orElseGet(() -> {
             Basket basket = new Basket();
             basket.setUser(user);
-            basket.setTotal(0L);
+            basket.setTotal(defaultTotal);
             return basketRepository.save(basket);
         });
     }
 
+    /**
+     * Moves the book from the wishlist to the basket
+     *
+     * @param bookId  the book id
+     * @param user  the user
+     */
     public void moveFromWishListToBasket(Long bookId, User user) {
         wishlistService.deleteWishlistItem(bookId, user);
         createBasketItem(bookId, user);

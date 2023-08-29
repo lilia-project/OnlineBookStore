@@ -1,5 +1,6 @@
 package org.project.OnlineBookStore.service;
 
+import lombok.RequiredArgsConstructor;
 import org.project.OnlineBookStore.entity.Author;
 import org.project.OnlineBookStore.exception.ResourceNotFoundException;
 import org.project.OnlineBookStore.repository.AuthorRepository;
@@ -11,13 +12,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class AuthorService {
     private final AuthorRepository authorRepository;
-
-    @Autowired
-    public AuthorService(AuthorRepository authorRepository) {
-        this.authorRepository = authorRepository;
-    }
 
     @PreAuthorize("hasAuthority('ADMIN')")
     public void saveAuthor(final Author author) {

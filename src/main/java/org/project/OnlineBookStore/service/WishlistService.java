@@ -31,6 +31,12 @@ public class WishlistService {
                 .orElseThrow(() -> new ResourceNotFoundException("Could not find a wishlist for user " + userId));
     }
 
+    /**
+     * Creates and saves the item to the wishlist
+     *
+     * @param bookId  the book id
+     * @param user  the user
+     */
     public void addWishlistItem(Long bookId, User user) {
         Wishlist wishlist = getRequiredByUserId(user.getId());
         Book book = bookService.getBookById(bookId)
@@ -43,6 +49,12 @@ public class WishlistService {
         wishlistRepository.save(wishlist);
     }
 
+    /**
+     * Deletes the item from the wishlist
+     *
+     * @param bookId  the book id
+     * @param user  the user
+     */
     public void deleteWishlistItem(Long bookId, User user) {
         Wishlist wishlist = getRequiredByUserId(user.getId());
 
