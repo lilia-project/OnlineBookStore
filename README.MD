@@ -15,3 +15,4 @@ There are two default user roles:
 ADMIN (login: admin, password: admin)
 USER (login: user, password: user)
 
+<img alt="schema" src = "src/main/resources/static/img/Schema.png">
