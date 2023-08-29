@@ -21,7 +21,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotBlank
-    @Length(min = 1, max = 10)
+    @Length(min = 4, max = 10)
     private String username;
     @NotBlank
     @Length(min = 4)

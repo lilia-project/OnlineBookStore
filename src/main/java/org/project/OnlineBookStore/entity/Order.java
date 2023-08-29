@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +22,7 @@ public class Order {
     private Long id;
     @Enumerated(EnumType.STRING)
     private StatusOrder statusOrder;
-    @NotNull
+    @Positive
     private Long price;
     private LocalDateTime orderTime;
 

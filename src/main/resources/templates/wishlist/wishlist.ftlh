@@ -1,9 +1,9 @@
 <#import "/parts/common.ftlh" as c>
 
 <@c.page>
-    <h1 class="text-center">Your Wish List</h1>
+    <h1 class="text-center">My wish list</h1>
     <#if books?has_content>
-        <table class="table table-hover mt-5" id="wishlist-table">
+        <table class="table border table-light table-striped mt-7 table-hover" id="wishlist-table">
             <thead>
                 <tr>
                     <th>Name</th>

@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 
 @Entity
 @Setter
@@ -16,11 +17,11 @@ public class OrderItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @NotNull
+    @Positive
     private Long bookId;
-    @NotNull
+    @Positive
     private Long unitPrice;
-    @NotNull
+    @Positive
     private Long count;
 
     @ManyToOne(fetch = FetchType.LAZY)
