@@ -81,7 +81,6 @@ INSERT INTO public.book(id, name, price, stock, category_id, rating_id)
             (24, 'The Moonstone', 288, 7, 10, 6),
             (25, 'Dracula', 145, 3, 8, 25);
 
-
 INSERT INTO public.author_book (book_id, author_id)
     VALUES (1, 2),
             (1, 3),

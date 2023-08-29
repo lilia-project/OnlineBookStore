@@ -28,7 +28,7 @@ public class BasketService {
     }
 
     public void createBasketItem(Long bookId, User user) {
-        Long defaultCount = 1L;
+        Long defaultCountItem = 1L;
         Book book = bookService.getBookById(bookId).orElseThrow();
         if (book.getStock() == 0) {
             throw new BookOutOfStockException("book is out of stock");
@@ -38,7 +38,7 @@ public class BasketService {
 
         BasketItem basketItem = new BasketItem();
         basketItem.setBookId(bookId);
-        basketItem.setCount(defaultCount);
+        basketItem.setCount(defaultCountItem);
         basketItem.setUnitPrice(book.getPrice());
         basketItem.setBasket(currentBasket);
 
