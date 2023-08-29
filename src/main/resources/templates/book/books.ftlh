@@ -111,7 +111,9 @@
                 <ul class="pagination justify-content-center">
                     <#if (pages > 1)>
                         <#list 1..pages as i>
-                            <li class="page-item"><a class="page-link" href="/books?page=${i}#booksTable">${i}</a></li>
+                            <li <#if (page = i)> class="page-item active" <#else> class="page-item" </#if>>
+                                <a class="page-link" href="/books?authorId=${authorId!''}&categoryId=${categoryId!''}&bookTitle=${bookTitle!''}&bookSort=${bookSort!''}&page=${i!''}&pageSize=${pageSize!''}#booksTable">${i}</a>
+                            </li>
                         </#list>
                     </#if>
                 </ul>

@@ -5,6 +5,7 @@
 
 <div class="row">
     <div class="col-md-12 error-container">
+<!--        <img src="https://via.placeholder.com/400" alt="Error Image" class="error-image">-->
         <div class="error-code">500</div>
         <div class="error-message">Oops! Something went wrong. Try again later</div>
         <p class="mt-4">We are notified about the problem and already working on it.</p>

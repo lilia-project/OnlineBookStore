@@ -42,7 +42,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return mav;
     }
 
-    @ExceptionHandler(BookOutOfStockException.class)
+    @ExceptionHandler({DataIntegrityViolationException.class, BookOutOfStockException.class})
     @ResponseStatus(value = HttpStatus.CONFLICT)
     protected ModelAndView handleConflict(HttpServletRequest req, Exception ex) {
         log.warn("Request: " + req.getRequestURL() + " raised " + ex);
@@ -53,13 +53,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         mav.setViewName("error/error409");
 
         return mav;
-    }
-
-    @ExceptionHandler(DataIntegrityViolationException.class)
-    @ResponseStatus(value = HttpStatus.CONFLICT)
-    @ResponseBody
-    protected void handleDataIntegrityViolation(HttpServletRequest req, Exception ex) {
-        log.warn("Request: " + req.getRequestURL() + " raised " + ex);
     }
 
 }
