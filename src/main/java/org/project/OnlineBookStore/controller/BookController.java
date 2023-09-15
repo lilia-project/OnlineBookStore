@@ -112,7 +112,7 @@ public class BookController {
      * @param id    the book id
      * @return the page of book
      */
-    @GetMapping("/{id}") //получить по id
+    @GetMapping("/{id}")
     public String getBookById(Model model, @PathVariable Long id) {
         final Optional<Book> bookById = bookService.getBookById(id);
         final Book book = bookById.orElse(null);
